@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/chrisarnold.io_v2',
   plugins: [
     {
       resolve: `gatsby-plugin-styled-components`,
