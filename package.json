@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "deploy": "gatsby-plugin-s3 deploy",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
