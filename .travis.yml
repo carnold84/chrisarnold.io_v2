@@ -4,5 +4,6 @@ deploy:
   local_dir: public
   github_token: $GITHUB_API_KEY
   keep_history: true
+  target_branch: gh_pages
   on:
     branch: master
