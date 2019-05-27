@@ -2,9 +2,6 @@ module.exports = {
   pathPrefix: '/chrisarnold.io_v2',
   plugins: [
     {
-      resolve: `gatsby-plugin-page-transitions`,
-    },
-    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
