@@ -2,9 +2,6 @@ module.exports = {
   pathPrefix: '/chrisarnold.io_v2',
   plugins: [
     {
-      resolve: `gatsby-plugin-layout`,
-    },
-    {
       resolve: `gatsby-plugin-page-transitions`,
     },
     {
