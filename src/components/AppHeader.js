@@ -3,6 +3,8 @@ import propTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import CloseIcon from '../assets/icon/close.svg';
+
 import AppLogo from './AppLogo';
 
 import breakpoint from '../utils/breakpoint';
@@ -16,33 +18,72 @@ const Wrapper = styled.header`
   margin: 0;
   padding: 40px;
   position: fixed;
+  transition: padding 1000ms ease;
   width: 100%;
   z-index: 1;
 
-  @media ${breakpoint('md')} {
+  .theme-1 & {
+    background-color: var(--bg-color-1);
+    color: var(--text-color1);
+    fill: var(--text-color1);
+  }
+
+  .theme-2 & {
+    background-color: var(--bg-color-alt1);
+    color: var(--text-color-alt1);
+    fill: var(--text-color-alt1);
+  }
+
+  /* @media ${breakpoint('md')} {
     padding: 60px;
+
+    &.is-compact {
+      padding: 0;
+    }
   }
 
   @media ${breakpoint('lg')} {
     padding: 80px;
-  }
+  } */
+`;
+
+const Title = styled.div`
+  display: flex;
+`;
+
+const TitleText = styled.h2`
+  color: var(--text-color-alt2);
+  font-family: var(--title-font), Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0 0 0 20px;
+  text-transform: uppercase;
+`;
+
+const SubTitleText = styled(TitleText)`
+  color: inherit;
+  margin: 0;
+`;
+
+const TitleDivider = styled(TitleText)`
+  margin: 0 10px;
 `;
 
 const Nav = styled.nav`
   align-items: center;
   display: flex;
-  justify-content: space - between;
+  justify-content: space-between;
 `;
 
 const NavLink = styled(Link).attrs({
   activeClassName: 'is-active',
 })`
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px dotted transparent;
   color: inherit;
-  font-size: 1rem;
-  font-weight: 400;
-  margin: 0 0 0 30px;
-  padding: 0 0 3px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 3px 0 0 30px;
+  padding: 0 0 2px;
   text-decoration: none;
   text-transform: uppercase;
 
@@ -51,37 +92,64 @@ const NavLink = styled(Link).attrs({
   }
 `;
 
-const AppHeader = ({ bgColor, color }) => {
+const CloseLink = styled(Link)`
+  align-items: center;
+  display: flex;
+  fill: var(--text-color-alt2);
+  justify-content: center;
+  text-decoration: none;
+`;
+
+const AppHeader = ({ hasClose, subTitle, theme, title }) => {
+  let classes = [];
+
+  if (hasClose) {
+    classes = ['has-close'];
+  }
+
+  if (theme === 1) {
+    classes = ['theme-1'];
+  }
+
   return (
-    <Wrapper
-      style={{
-        backgroundColor: `var(${bgColor})`,
-        color: `var(${color})`,
-        fill: `var(${color})`,
-      }}
-    >
-      <Link to={'/'}>
-        <AppLogo />
-      </Link>
-      <Nav>
-        <NavLink to={'/'}>Home</NavLink>
-        <NavLink to={'/code'}>Code</NavLink>
-        {/* <NavLink to={'/notes'}>Notes</NavLink> */}
-      </Nav>
+    <Wrapper className={classes}>
+      <Title>
+        <Link to={'/'}>
+          <AppLogo />
+        </Link>
+        {title && <TitleText>{title}</TitleText>}
+        {title && subTitle && <TitleDivider>/</TitleDivider>}
+        {subTitle && <SubTitleText>{subTitle}</SubTitleText>}
+      </Title>
+      {!hasClose && (
+        <Nav>
+          <NavLink to={'/'}>Home</NavLink>
+          <NavLink to={'/code'}>Code</NavLink>
+          {/* <NavLink to={'/notes'}>Notes</NavLink> */}
+          <NavLink to={'/resources'}>Resources</NavLink>
+        </Nav>
+      )}
+      {hasClose && (
+        <CloseLink to={'/'}>
+          <CloseIcon />
+        </CloseLink>
+      )}
     </Wrapper>
   );
 };
 
-const { string } = propTypes;
+const { bool, number, string } = propTypes;
 
 AppHeader.propTypes = {
-  bgColor: string,
-  color: string,
+  hasClose: bool,
+  subTitle: string,
+  theme: number,
+  title: string,
 };
 
 AppHeader.defaultProps = {
-  bgColor: '--bg-color1',
-  color: '--text-color1',
+  hasClose: false,
+  theme: 1,
 };
 
 export default AppHeader;

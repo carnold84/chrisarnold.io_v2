@@ -31,7 +31,11 @@ const NotesPage = () => {
   } = data;
 
   return (
-    <Layout appHeaderColor={'--text-color-alt1'} bgColor={'--color-alt1'}>
+    <Layout
+      appHeaderColor={'--text-color-alt1'}
+      bgColor={'--color-alt1'}
+      isCompact={true}
+    >
       {edges.map(edge => {
         const nodeData = {
           excerpt: edge.node.excerpt,

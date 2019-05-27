@@ -1,14 +1,13 @@
 import propTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-
-import AppHeader from '../components/AppHeader';
-
-import breakpoint from '../utils/breakpoint';
 
 const GlobalStyles = createGlobalStyle`
   :root {
+    --title-font: 'Oswald', Arial, Helvetica, sans-serif;
+    --body-font: 'Oswald', Arial, Helvetica, sans-serif;
     --bg-color1: #ffffff;
+    --bg-color-alt1: #1c2227;
     --color1: #663399;
     --color-alt1: #1c2227;
     --text-color1: #333333;
@@ -18,9 +17,11 @@ const GlobalStyles = createGlobalStyle`
     --text-color-alt2: #a6b2b9;
     --text-color-alt3: #718087;
   }
+
   *, *::before, *::after {
     box-sizing: border-box;
   }
+
   html {
     color: #222222;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
@@ -29,8 +30,9 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
   body {
-    background-color: var(${props => props.bgColor});
+    background-color: var(--bg-color1);
     margin: 0;
     padding: 0;
   }
@@ -43,6 +45,14 @@ const Wrapper = styled.div`
   position: absolute;
   width: 100%;
   z-index: 0;
+
+  .theme-1 & {
+    background-color: var(--bg-color-1);
+  }
+
+  .theme-2 & {
+    background-color: var(--bg-color-alt1);
+  }
 `;
 
 const Container = styled.div`
@@ -50,44 +60,31 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 140px 40px;
-
-  @media ${breakpoint('md')} {
-    padding: 180px 100px;
-  }
-
-  @media ${breakpoint('lg')} {
-    padding: 220px;
-  }
-`;
-
-const Content = styled.section`
-  max-width: 900px;
+  height: 100%;
   width: 100%;
 `;
 
-const Layout = ({ bgColor, appHeaderColor, children }) => {
+const Layout = ({ children, theme }) => {
+  useEffect(() => {
+    document.body.className = `theme-${theme}`;
+  });
+
   return (
     <Wrapper>
-      <GlobalStyles bgColor={bgColor} />
-      <AppHeader bgColor={bgColor} color={appHeaderColor} />
-      <Container>
-        <Content>{children}</Content>
-      </Container>
+      <GlobalStyles />
+      <Container>{children}</Container>
     </Wrapper>
   );
 };
 
-const { string } = propTypes;
+const { number } = propTypes;
 
 Layout.propTypes = {
-  appHeaderColor: string,
-  bgColor: string,
+  theme: number,
 };
 
 Layout.defaultProps = {
-  appHeaderColor: '--text-color1',
-  bgColor: '--bg-color1',
+  theme: 1,
 };
 
 export default Layout;

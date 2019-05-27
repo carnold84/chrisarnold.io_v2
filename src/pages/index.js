@@ -1,14 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import AppHeader from '../components/AppHeader';
 import Layout from '../components/Layout';
 
 import breakpoint from '../utils/breakpoint';
 
-const Wrapper = styled.div`
+const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 140px 40px;
+
+  @media ${breakpoint('md')} {
+    padding: 180px 100px;
+  }
+
+  @media ${breakpoint('lg')} {
+    padding: 220px;
+  }
 `;
 
 const Heading = styled.h1`
@@ -37,8 +47,9 @@ const Paragraph = styled.p`
 `;
 
 export default () => (
-  <Layout>
-    <Wrapper>
+  <Layout theme={1}>
+    <AppHeader />
+    <Content>
       <Heading>Hello,</Heading>
       <Paragraph>
         I'm Chris Arnold, a front-end developer and designer in Christchurch,
@@ -46,6 +57,6 @@ export default () => (
         it with clean, beautiful design and well thought out, user-friendly
         interfaces.
       </Paragraph>
-    </Wrapper>
+    </Content>
   </Layout>
 );

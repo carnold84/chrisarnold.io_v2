@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 const Header = styled.h2`
   color: var(--text-color-alt1);
   flex-shrink: 0;
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: 400;
   line-height: 2.4rem;
@@ -130,10 +131,6 @@ CodeItem.propTypes = {
     tags: string,
     title: string,
   }),
-};
-
-CodeItem.defaultProps = {
-  color: '--text-color1',
 };
 
 export default CodeItem;
