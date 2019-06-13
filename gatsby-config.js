@@ -2,18 +2,9 @@ module.exports = {
   pathPrefix: '/chrisarnold.io_v2',
   plugins: [
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Open Sans`,
-            variants: [`400`, `700`],
-          },
-          {
-            family: `Oswald`,
-            variants: [`400`, `700`],
-          },
-        ],
+        fonts: [`Oswald\:300,400,700`, `Open Sans\:400,700`],
       },
     },
     {

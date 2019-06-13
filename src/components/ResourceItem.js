@@ -1,32 +1,37 @@
-import { Link } from 'gatsby';
 import propTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-
-import TagIcon from '../assets/icon/tag.svg';
 
 import TagItem from './TagItem';
 
 import breakpoint from '../utils/breakpoint';
 
-const Wrapper = styled.tr`
-  border-bottom: 1px solid #eeeeee;
+const Wrapper = styled.div`
+  align-self: start;
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
   color: var(--text-color1);
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-column-gap: 10px;
   margin: 0;
   width: 100%;
 `;
 
-const Cell = styled.td`
+const Cell = styled.div`
+  align-items: center;
   color: var(--text-color1);
+  display: flex;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.2rem;
-  margin: 0 0 10px;
-  padding: 20px;
+  padding: 24px 20px 20px;
 `;
 
 const TitleCell = styled(Cell)`
-  font-weight: 700;
+  font-family: var(--title-font);
+  font-size: 1.1rem;
+  font-weight: 400;
 `;
 
 const UrlLink = styled.a.attrs({
@@ -50,31 +55,7 @@ const UrlLink = styled.a.attrs({
   }
 `;
 
-const TagLink = styled(Link)`
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  color: var(--text-color3);
-  display: flex;
-  fill: #cccccc;
-  font-size: 1rem;
-  font-weight: 400;
-  justify-content: center;
-  line-height: 1rem;
-  text-decoration: none;
-
-  svg {
-    margin: 0 5px 0 0;
-  }
-
-  &:hover {
-    color: var(--text-color1);
-    fill: #aaaaaa;
-  }
-`;
-
 const ResourceItem = ({ data }) => {
-  console.log(data);
   const { link, tags, title } = data;
 
   return (

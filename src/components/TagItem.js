@@ -15,7 +15,9 @@ const Wrapper = styled(Link)`
   font-size: 1rem;
   font-weight: 400;
   line-height: 1rem;
+  padding: 10px 20px;
   text-decoration: none;
+  text-transform: capitalize;
 
   svg {
     margin: 0 5px 0 0;

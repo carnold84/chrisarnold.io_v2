@@ -6,19 +6,19 @@ import Layout from '../components/Layout';
 
 import breakpoint from '../utils/breakpoint';
 
+const Wrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 0 40px 100px;
+`;
+
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 140px 40px;
-
-  @media ${breakpoint('md')} {
-    padding: 180px 100px;
-  }
-
-  @media ${breakpoint('lg')} {
-    padding: 220px;
-  }
+  max-width: 1000px;
 `;
 
 const Heading = styled.h1`
@@ -46,17 +46,21 @@ const Paragraph = styled.p`
   }
 `;
 
-export default () => (
-  <Layout theme={1}>
-    <AppHeader />
-    <Content>
-      <Heading>Hello,</Heading>
-      <Paragraph>
-        I'm Chris Arnold, a front-end developer and designer in Christchurch,
-        New Zealand. I like to write clean, elegant, functional code and partner
-        it with clean, beautiful design and well thought out, user-friendly
-        interfaces.
-      </Paragraph>
-    </Content>
-  </Layout>
-);
+export default () => {
+  return (
+    <Layout theme={1}>
+      <AppHeader />
+      <Wrapper>
+        <Content>
+          <Heading>Hello,</Heading>
+          <Paragraph>
+            I'm Chris Arnold, a front-end developer and designer in
+            Christchurch, New Zealand. I like to write clean, elegant,
+            functional code and partner it with clean, beautiful design and well
+            thought out, user-friendly interfaces.
+          </Paragraph>
+        </Content>
+      </Wrapper>
+    </Layout>
+  );
+};

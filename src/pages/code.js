@@ -8,18 +8,28 @@ import Layout from '../components/Layout';
 
 import breakpoint from '../utils/breakpoint';
 
-const Content = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  height: 100%;
+  width: 100%;
+`;
+
+const Content = styled.div`
+  display: grid;
+  grid-column-gap: 40px;
+  grid-template-columns: 1fr;
   padding: 140px 40px;
 
   @media ${breakpoint('md')} {
-    padding: 180px 100px;
+    grid-column-gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    padding: 110px 120px;
   }
 
   @media ${breakpoint('lg')} {
-    padding: 220px;
+    grid-column-gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 
@@ -32,6 +42,7 @@ export default () => {
       ) {
         edges {
           node {
+            id
             html
             frontmatter {
               date
@@ -52,22 +63,32 @@ export default () => {
     allMarkdownRemark: { edges },
   } = data;
 
+  let breadcrumbs = [
+    {
+      link: '/code',
+      text: 'Code',
+    },
+    {
+      text: 'Experiments and Projects',
+    },
+  ];
+
   return (
     <Layout theme={2}>
-      <AppHeader
-        hasClose={true}
-        subTitle={'Experiments and Projects'}
-        title={'Code'}
-      />
-      <Content>
-        {edges.map(edge => {
-          const nodeData = {
-            description: edge.node.html,
-            ...edge.node.frontmatter,
-          };
-          return <CodeItem data={nodeData} key={nodeData.path} />;
-        })}
-      </Content>
+      <Wrapper>
+        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} />
+        <Content>
+          {edges.map((edge, i) => {
+            const nodeData = {
+              description: edge.node.html,
+              id: edge.node.id,
+              number: i + 1,
+              ...edge.node.frontmatter,
+            };
+            return <CodeItem data={nodeData} key={nodeData.id} />;
+          })}
+        </Content>
+      </Wrapper>
     </Layout>
   );
 };

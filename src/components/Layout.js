@@ -1,13 +1,19 @@
 import propTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   :root {
     --title-font: 'Oswald', Arial, Helvetica, sans-serif;
-    --body-font: 'Oswald', Arial, Helvetica, sans-serif;
-    --bg-color1: #ffffff;
-    --bg-color-alt1: #1c2227;
+    --body-font: 'Open Sans', Arial, Helvetica, sans-serif;
+    --theme-color1: #ffffff;
+    --theme-color2: #eeeeee;
+    --theme-color3: #dddddd;
+    --theme-color4: #cccccc;
+    --theme-color-alt1: #1c2227;
+    --theme-color-alt2: #21282d;
+    --theme-color-alt3: #2d353c;
+    --theme-color-alt4: #465058;
     --color1: #663399;
     --color-alt1: #1c2227;
     --text-color1: #333333;
@@ -32,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: var(--bg-color1);
+    background-color: var(--theme-color1);
     margin: 0;
     padding: 0;
   }
@@ -42,6 +48,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: auto;
   position: absolute;
   width: 100%;
   z-index: 0;
@@ -51,29 +58,21 @@ const Wrapper = styled.div`
   }
 
   .theme-2 & {
-    background-color: var(--bg-color-alt1);
+    background-color: var(--theme-color-alt1);
   }
 `;
 
-const Container = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  height: 100%;
-  width: 100%;
-`;
-
 const Layout = ({ children, theme }) => {
+  console.log('Layout');
   useEffect(() => {
     document.body.className = `theme-${theme}`;
   });
 
   return (
-    <Wrapper>
+    <Fragment>
       <GlobalStyles />
-      <Container>{children}</Container>
-    </Wrapper>
+      <Wrapper>{children}</Wrapper>
+    </Fragment>
   );
 };
 

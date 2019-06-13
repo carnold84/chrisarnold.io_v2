@@ -1,13 +1,13 @@
 import propTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   :root {
     --title-font: 'Oswald', Arial, Helvetica, sans-serif;
     --body-font: 'Oswald', Arial, Helvetica, sans-serif;
-    --bg-color1: #ffffff;
-    --bg-color-alt1: #1c2227;
+    --theme-color1: #ffffff;
+    --theme-color-alt1: #1c2227;
     --color1: #663399;
     --color-alt1: #1c2227;
     --text-color1: #333333;
@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: var(--bg-color1);
+    background-color: var(--theme-color1);
     margin: 0;
     padding: 0;
   }
@@ -51,7 +51,7 @@ const Wrapper = styled.div`
   }
 
   .theme-2 & {
-    background-color: var(--bg-color-alt1);
+    background-color: var(--theme-color-alt1);
   }
 `;
 
@@ -64,7 +64,9 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Layout = ({ children, theme }) => {
+const Layout = props => {
+  const { children, theme } = props;
+
   useEffect(() => {
     document.body.className = `theme-${theme}`;
   });

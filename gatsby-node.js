@@ -56,6 +56,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   let allNodes = [];
   let allTags = [];
+  let tagLookup = {};
 
   // create array of all tags
   allResourcesJson.edges.forEach(({ node }) => {
@@ -63,19 +64,25 @@ exports.createPages = async ({ actions, graphql }) => {
       ...node,
       id: _uniqueId(),
       tags: node.tags.map(tag => {
-        return {
-          id: tag,
-          label: tag.toLowerCase(),
-          path: `/resources/${tag}`,
-        };
+        const tagName = tag.toLowerCase();
+        let newTag = tagLookup[tagName];
+        if (newTag === undefined) {
+          newTag = {
+            id: tagName,
+            label: tagName,
+            path: `/resources/${tagName}`,
+            count: 0,
+          };
+          tagLookup[tagName] = newTag;
+        }
+        newTag.count += 1;
+        return newTag;
       }),
       tagStrings: node.tags, // keep strings just for filtering
     };
     allNodes.push(newNode);
-    allTags = allTags.concat(newNode.tags);
+    allTags = Object.values(tagLookup);
   });
-  // remove duplicates
-  allTags = _uniqBy(allTags, 'label');
 
   // create root resources page
   createPage({
@@ -93,7 +100,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: tag.path,
       component: ResourcesTemplate,
-      context: { currentTag: tag.label, nodes, tags: allTags }, // additional data can be passed via context
+      context: { currentTag: tag, nodes, tags: allTags }, // additional data can be passed via context
     });
   });
 };

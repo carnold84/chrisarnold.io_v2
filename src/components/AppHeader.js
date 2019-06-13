@@ -29,7 +29,7 @@ const Wrapper = styled.header`
   }
 
   .theme-2 & {
-    background-color: var(--bg-color-alt1);
+    background-color: var(--theme-color-alt1);
     color: var(--text-color-alt1);
     fill: var(--text-color-alt1);
   }
@@ -51,22 +51,51 @@ const Title = styled.div`
   display: flex;
 `;
 
-const TitleText = styled.h2`
-  color: var(--text-color-alt2);
+const BreadCrumbs = styled.div`
+  display: flex;
+  margin: 0 0 0 20px;
+`;
+
+const BreadCrumbLink = styled(Link)`
+  color: inherit;
+  margin: 0;
+  text-decoration: none;
+`;
+
+const BreadCrumbText = styled.h2`
   font-family: var(--title-font), Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
-  margin: 0 0 0 20px;
+  margin: 0 0 0 10px;
   text-transform: uppercase;
-`;
 
-const SubTitleText = styled(TitleText)`
-  color: inherit;
-  margin: 0;
-`;
+  &:after {
+    content: '/';
+    margin: 0 0 0 10px;
+  }
 
-const TitleDivider = styled(TitleText)`
-  margin: 0 10px;
+  &:last-child {
+    &:after {
+      content: '';
+      margin: 0;
+    }
+  }
+
+  .theme-1 & {
+    color: var(--text-color3);
+
+    &:last-child {
+      color: var(--text-color1);
+    }
+  }
+
+  .theme-2 & {
+    color: var(--text-color-alt2);
+
+    &:last-child {
+      color: var(--text-color-alt1);
+    }
+  }
 `;
 
 const Nav = styled.nav`
@@ -100,7 +129,7 @@ const CloseLink = styled(Link)`
   text-decoration: none;
 `;
 
-const AppHeader = ({ hasClose, subTitle, theme, title }) => {
+const AppHeader = ({ breadcrumbs, hasClose, theme }) => {
   let classes = [];
 
   if (hasClose) {
@@ -111,15 +140,28 @@ const AppHeader = ({ hasClose, subTitle, theme, title }) => {
     classes = ['theme-1'];
   }
 
+  let crumbs;
+
+  if (breadcrumbs) {
+    crumbs = breadcrumbs.map((item, i) => {
+      const { link, text } = item;
+      return link ? (
+        <BreadCrumbText key={`${text}-${i}`}>
+          <BreadCrumbLink to={link}>{text}</BreadCrumbLink>
+        </BreadCrumbText>
+      ) : (
+        <BreadCrumbText key={`${text}-${i}`}>{text}</BreadCrumbText>
+      );
+    });
+  }
+
   return (
     <Wrapper className={classes}>
       <Title>
         <Link to={'/'}>
           <AppLogo />
         </Link>
-        {title && <TitleText>{title}</TitleText>}
-        {title && subTitle && <TitleDivider>/</TitleDivider>}
-        {subTitle && <SubTitleText>{subTitle}</SubTitleText>}
+        {crumbs && <BreadCrumbs>{crumbs}</BreadCrumbs>}
       </Title>
       {!hasClose && (
         <Nav>
@@ -138,13 +180,17 @@ const AppHeader = ({ hasClose, subTitle, theme, title }) => {
   );
 };
 
-const { bool, number, string } = propTypes;
+const { arrayOf, bool, number, shape, string } = propTypes;
 
 AppHeader.propTypes = {
+  breadcrumbs: arrayOf(
+    shape({
+      link: string,
+      text: string.isRequired,
+    }),
+  ),
   hasClose: bool,
-  subTitle: string,
   theme: number,
-  title: string,
 };
 
 AppHeader.defaultProps = {
