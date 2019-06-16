@@ -1,22 +1,19 @@
 module.exports = {
-  pathPrefix: '/chrisarnold.io_v2',
   plugins: [
     {
-      resolve: `gatsby-plugin-styled-components`,
-    },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Open Sans`,
-            variants: [`400`, `700`],
-          },
-        ],
+        fonts: [`Oswald\:300,400,700`, `Open Sans\:400,700`],
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: `gatsby-plugin-react-helmet`,
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -25,6 +22,16 @@ module.exports = {
         name: 'markdown-pages',
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-json`,
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+    },
   ],
+  siteMetadata: {
+    title: `ChrisArnold.io`,
+    siteUrl: `https://chrisarnold.io`,
+    description: `Chris Arnold - Front-end developer and designer working in Javascript, HTML, CSS, React, Vue, Node and much more.`,
+  },
 };

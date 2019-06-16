@@ -1,5 +1,6 @@
 ---
 demoLink: 'https://meltplastic.net/demos/travel_app/'
+order: 3
 path: '/code/travel-app'
 repositoryLink: 'https://github.com/carnold84/travel_app'
 tags: 'AngularJS, Spectre.css'

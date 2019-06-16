@@ -1,0 +1,92 @@
+[
+  {
+    "link": "https://github.com/petyosi/react-virtuoso",
+    "tags": ["react", "library"],
+    "title": "React Virtuoso"
+  },
+  {
+    "link": "https://feather.netlify.com",
+    "tags": ["icons"],
+    "title": "Feather"
+  },
+  {
+    "link": "https://react-simple-animate.now.sh",
+    "tags": ["react", "library"],
+    "title": "React Simple Animate"
+  },
+  {
+    "link": "https://github.com/renatorib/react-sizes",
+    "tags": ["react", "library"],
+    "title": "React Sizes"
+  },
+  {
+    "link": "https://github.com/atlassian/react-beautiful-dnd",
+    "tags": ["react", "library"],
+    "title": "React Beautiful Dnd"
+  },
+  {
+    "link": "https://github.com/xobotyi/react-scrollbars-custom",
+    "tags": ["react", "library"],
+    "title": "React Scrollbars Custom"
+  },
+  {
+    "link": "https://github.com/South-Paw/react-vector-maps",
+    "tags": ["react", "library"],
+    "title": "React Vector Maps"
+  },
+  {
+    "link": "https://github.com/bvaughn/react-window",
+    "tags": ["react", "library"],
+    "title": "React Window"
+  },
+  {
+    "link": "https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9",
+    "tags": ["webpack", "article"],
+    "title": "Webpack - The Confusing Parts"
+  },
+  {
+    "link": "https://medium.freecodecamp.org/everything-you-need-to-know-about-ng-template-ng-content-ng-container-and-ngtemplateoutlet-4b7b51223691",
+    "tags": ["angular", "article"],
+    "title": "Everything you need to know about <ng-template>, <ng-content>, <ng-container> and *ngTemplateOutlet in Angular"
+  },
+  {
+    "link": "https://reactresources.com/",
+    "tags": ["react"],
+    "title": "React Resources"
+  },
+  {
+    "link": "https://blog.bitsrc.io/6-tricks-with-resting-and-spreading-javascript-objects-68d585bdc83",
+    "tags": ["javascript", "article"],
+    "title": "7 Tricks with Resting and Spreading JavaScript Objects"
+  },
+  {
+    "link": "https://overreacted.io/writing-resilient-components/",
+    "tags": ["react", "article"],
+    "title": "Writing Resilient Components"
+  },
+  {
+    "link": "https://adamrackis.dev/state-and-use-reducer/",
+    "tags": ["react", "hooks", "article"],
+    "title": "Hooks, State, Closures, and useReducer"
+  },
+  {
+    "link": "https://github.com/Swizec/useDimensions",
+    "tags": ["react", "library"],
+    "title": "useDimensions - a React Hook to measure DOM nodes"
+  },
+  {
+    "link": "https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/",
+    "tags": ["web dev", "html", "accessibility", "article"],
+    "title": "See No Evil: Hidden Content and Accessibility"
+  },
+  {
+    "link": "http://alistapart.com/article/responsible-javascript-part-1/",
+    "tags": ["javascript", "article", "performance"],
+    "title": "Responsible JavaScript: Part I"
+  },
+  {
+    "link": "https://github.com/kevinwolfcr/formal",
+    "tags": ["react", "hooks", "library"],
+    "title": "Formal"
+  }
+]
