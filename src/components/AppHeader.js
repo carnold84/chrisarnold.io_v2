@@ -131,6 +131,7 @@ const CloseLink = styled(Link)`
   display: flex;
   fill: var(--text-color-alt2);
   justify-content: center;
+  margin: 0 0 0 10px;
   text-decoration: none;
 `;
 

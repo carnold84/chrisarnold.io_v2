@@ -28,23 +28,25 @@ const Content = styled.div`
 `;
 
 const Heading = styled.h1`
-  font-size: 6rem;
+  font-family: var(--title-font);
+  font-size: 5rem;
   font-weight: 700;
-  line-height: 6rem;
-  margin: 0 0 25px;
+  line-height: 5rem;
+  margin: 0 0 15px;
+
+  @media ${breakpoint('md')} {
+    font-size: 6rem;
+    line-height: 6rem;
+    margin: 0 0 25px;
+  }
 `;
 
 const Paragraph = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 400;
-  line-height: 2.2rem;
-  margin: 0 0 10px;
+  line-height: 1.7rem;
+  margin: 0 0 0 3px;
   text-align: justify;
-
-  @media ${breakpoint('sm')} {
-    font-size: 1.3rem;
-    line-height: 2rem;
-  }
 
   @media ${breakpoint('md')} {
     font-size: 1.3rem;
@@ -70,7 +72,7 @@ export default () => {
     <Layout theme={1}>
       <Helmet>
         <meta charSet={'utf-8'} />
-        <title>Chris Arnold - Front-end Developer and Designer - {title}</title>
+        <title>{title} - Front-end Developer and Designer</title>
         <meta name={'description'} content={description} />
         <link rel={'canonical'} href={'http://mysite.com/example'} />
       </Helmet>

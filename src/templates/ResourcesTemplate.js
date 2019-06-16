@@ -52,10 +52,6 @@ const TagsBtn = styled.button`
   &:hover {
     color: var(--color1);
   }
-
-  @media ${breakpoint('md')} {
-    display: none;
-  }
 `;
 
 const Tags = styled.ul`
@@ -114,7 +110,7 @@ const TagsCloseBtn = styled.button`
   padding: 0;
   text-decoration: none;
 
-  @media ${breakpoint('md')} {
+  @media ${breakpoint('lg')} {
     display: none;
   }
 `;

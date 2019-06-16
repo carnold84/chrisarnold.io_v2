@@ -20,7 +20,7 @@ const Content = styled.div`
   display: grid;
   grid-column-gap: 40px;
   grid-template-columns: 1fr;
-  padding: 80px 20px;
+  padding: 90px 20px;
 
   @media ${breakpoint('md')} {
     grid-column-gap: 40px;
