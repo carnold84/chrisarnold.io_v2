@@ -59,14 +59,15 @@ export default () => {
     query {
       site {
         siteMetadata {
-          title
           description
+          siteUrl
+          title
         }
       }
     }
   `);
 
-  const { description, title } = data.site.siteMetadata;
+  const { description, siteUrl, title } = data.site.siteMetadata;
 
   return (
     <Layout theme={1}>
@@ -74,7 +75,7 @@ export default () => {
         <meta charSet={'utf-8'} />
         <title>{title} - Front-end Developer and Designer</title>
         <meta name={'description'} content={description} />
-        <link rel={'canonical'} href={'http://mysite.com/example'} />
+        <link rel={'canonical'} href={siteUrl} />
       </Helmet>
       <AppHeader />
       <Wrapper>

@@ -180,8 +180,9 @@ const Resources = styled.div`
 
 export default props => {
   const {
-    pageContext: { currentTag, nodes, tags, totalNodes },
+    pageContext: { currentTag, nodes, slug, tags, totalNodes },
   } = props;
+  console.log(slug);
 
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -189,8 +190,8 @@ export default props => {
     query {
       site {
         siteMetadata {
+          siteUrl
           title
-          description
         }
       }
     }
@@ -198,7 +199,7 @@ export default props => {
 
   let breadcrumbs = [
     {
-      link: '/resources',
+      link: slug,
       text: 'Resources',
     },
   ];
@@ -215,7 +216,7 @@ export default props => {
 
   const {
     site: {
-      siteMetadata: { title },
+      siteMetadata: { siteUrl, title },
     },
   } = data;
 
@@ -230,7 +231,7 @@ export default props => {
             'Resources, useful links, libraries, frameworks and articles.'
           }
         />
-        <link rel={'canonical'} href={'http://mysite.com/example'} />
+        <link rel={'canonical'} href={`${siteUrl}${slug}`} />
       </Helmet>
       <Wrapper>
         <AppHeader breadcrumbs={breadcrumbs} hasClose={true} />

@@ -91,6 +91,7 @@ exports.createPages = async ({ actions, graphql }) => {
     component: ResourcesTemplate,
     context: {
       nodes: allNodes,
+      slug: `/resources`,
       tags: allTags,
       totalNodes,
     }, // additional data can be passed via context
@@ -108,6 +109,7 @@ exports.createPages = async ({ actions, graphql }) => {
       context: {
         currentTag: tag,
         nodes,
+        slug: tag.path,
         tags: allTags,
         totalNodes,
       }, // additional data can be passed via context

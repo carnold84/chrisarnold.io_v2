@@ -63,6 +63,7 @@ export default () => {
       }
       site {
         siteMetadata {
+          siteUrl
           title
         }
       }
@@ -72,7 +73,7 @@ export default () => {
   const {
     allMarkdownRemark: { edges },
     site: {
-      siteMetadata: { title },
+      siteMetadata: { siteUrl, title },
     },
   } = data;
 
@@ -97,7 +98,7 @@ export default () => {
             'Experiments and projects built using Javascript, React, Vue, Angular and much more.'
           }
         />
-        <link rel={'canonical'} href={'http://mysite.com/example'} />
+        <link rel={'canonical'} href={`${siteUrl}/code`} />
       </Helmet>
       <Wrapper>
         <AppHeader breadcrumbs={breadcrumbs} hasClose={true} />
