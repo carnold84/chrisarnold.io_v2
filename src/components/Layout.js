@@ -7,14 +7,16 @@ const GlobalStyles = createGlobalStyle`
     --title-font: 'Oswald', Arial, Helvetica, sans-serif;
     --body-font: 'Open Sans', Arial, Helvetica, sans-serif;
     --theme-color1: #ffffff;
-    --theme-color2: #eeeeee;
-    --theme-color3: #dddddd;
-    --theme-color4: #cccccc;
+    --theme-color2: #f7f8f9;
+    --theme-color3: #eeeeee;
+    --theme-color4: #dddddd;
     --theme-color-alt1: #1c2227;
     --theme-color-alt2: #21282d;
     --theme-color-alt3: #2d353c;
     --theme-color-alt4: #465058;
     --color1: #663399;
+    --color2: #ded3ea;
+    --color3: #f9f4ff;
     --color-alt1: #1c2227;
     --text-color1: #333333;
     --text-color2: #666666;
@@ -47,23 +49,25 @@ const GlobalStyles = createGlobalStyle`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  overflow: auto;
+  min-height: 100%;
   position: absolute;
   width: 100%;
   z-index: 0;
 
   .theme-1 & {
-    background-color: var(--bg-color-1);
+    background-color: var(--theme-color1);
   }
 
   .theme-2 & {
+    background-color: var(--theme-color2);
+  }
+
+  .theme-3 & {
     background-color: var(--theme-color-alt1);
   }
 `;
 
 const Layout = ({ children, theme }) => {
-  console.log('Layout');
   useEffect(() => {
     document.body.className = `theme-${theme}`;
   });

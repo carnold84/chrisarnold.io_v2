@@ -1,5 +1,6 @@
 ---
 demoLink: 'https://react-photos-avcfjakuso.now.sh/'
+order: 2
 path: '/code/react-photos'
 repositoryLink: 'https://github.com/carnold84/React-Photos-2-0'
 tags: 'React, Next.js'

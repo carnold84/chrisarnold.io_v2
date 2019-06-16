@@ -1,36 +1,60 @@
-import { Link } from 'gatsby';
-import React from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
 import AppHeader from '../components/AppHeader';
 import Layout from '../components/Layout';
 import ResourceItem from '../components/ResourceItem';
 
+import CloseIcon from '../assets/icon/close.svg';
+
 import breakpoint from '../utils/breakpoint';
 
 const Wrapper = styled.div`
-  background-color: #f7f8f9;
+  background-color: var(--theme-color2);
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 100%;
 `;
 
 const Content = styled.div`
-  display: grid;
-  grid-column-gap: 20px;
-  grid-template-columns: 1fr;
-  padding: 140px 40px;
+  padding: 80px 20px;
 
   @media ${breakpoint('md')} {
-    grid-column-gap: 20px;
-    grid-template-columns: 1fr 9fr;
     padding: 110px 120px;
   }
+`;
+
+const Options = styled.div`
+  display: flex;
+  margin: 0 0 10px;
 
   @media ${breakpoint('lg')} {
-    grid-column-gap: 20px;
-    grid-template-columns: 1fr 9fr;
+    display: none;
+  }
+`;
+
+const TagsBtn = styled.button`
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: var(--text-color2);
+  cursor: pointer;
+  display: flex;
+  font-family: var(--title-font);
+  font-size: 1.2rem;
+  font-weight: 400;
+  justify-content: center;
+  padding: 0;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color1);
+  }
+
+  @media ${breakpoint('md')} {
+    display: none;
   }
 `;
 
@@ -39,19 +63,60 @@ const Tags = styled.ul`
   background-color: #ffffff;
   border: 1px solid #f0f0f0;
   flex-shrink: 0;
+  height: 100%;
+  left: 0;
   list-style: none;
   margin: 0;
-  padding: 20px 0;
-  width: 220px;
+  padding: 7px 0;
+  position: fixed;
+  top: 0;
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 200ms ease-out;
+  width: 100%;
+  z-index: 1000;
+
+  &.is-open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media ${breakpoint('lg')} {
+    left: auto;
+    padding: 20px 0;
+    top: auto;
+    transform: translate3d(0, 0, 0);
+    width: 220px;
+    z-index: 0;
+  }
 `;
 
-const TagsHeader = styled.h3`
+const TagsHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px 15px;
+`;
+
+const TagsTitle = styled.h3`
   color: var(--text-color1);
   font-family: var(--title-font);
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.2rem;
-  margin: 0 20px 15px;
+`;
+
+const TagsCloseBtn = styled.button`
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  fill: var(--text-color-alt2);
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+
+  @media ${breakpoint('md')} {
+    display: none;
+  }
 `;
 
 const TagItemContainer = styled.li`
@@ -70,12 +135,18 @@ const TagItem = styled(Link)`
   height: 40px;
   justify-content: space-between;
   margin: 0 0 5px;
-  padding: 0 20px;
+  padding: 0 20px 2px;
   text-decoration: none;
   text-transform: capitalize;
   width: 100%;
 
+  &:hover {
+    background-color: var(--color3);
+    color: var(--text-color1);
+  }
+
   &.is-active {
+    background-color: var(--color3);
     border-color: var(--color1);
     color: var(--text-color1);
   }
@@ -83,34 +154,51 @@ const TagItem = styled(Link)`
 
 const TagCount = styled.span`
   align-items: center;
-  border: 1px solid var(--theme-color2);
+  border: 1px solid var(--theme-color3);
   border-radius: 15px;
-  color: var(--text-color2);
+  color: var(--text-color3);
   display: inline-flex;
   font-family: var(--title-font);
   font-size: 0.9rem;
   font-weight: 400;
   height: 30px;
   line-height: 1.1rem;
+  margin: 1px 0 0;
   padding: 0 15px;
+
+  .is-active & {
+    border-color: var(--color2);
+  }
 `;
 
 const Resources = styled.div`
+  align-self: start;
   display: grid;
   grid-row-gap: 10px;
-  width: 100%;
+  margin: 0;
+
+  @media ${breakpoint('lg')} {
+    margin: 0 0 0 260px;
+  }
 `;
 
 export default props => {
   const {
-    pageContext: { currentTag, nodes, tags },
+    pageContext: { currentTag, nodes, tags, totalNodes },
   } = props;
 
-  const tagsTotal = tags.reduce((acc, current) => {
-    return acc + current.count;
-  }, tags[0].count);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
-  console.log(nodes, tags);
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `);
 
   let breadcrumbs = [
     {
@@ -129,20 +217,47 @@ export default props => {
     });
   }
 
+  const {
+    site: {
+      siteMetadata: { title },
+    },
+  } = data;
+
   return (
-    <Layout isCompact={true}>
+    <Layout theme={2}>
+      <Helmet>
+        <meta charSet={'utf-8'} />
+        <title>Resources - {title}</title>
+        <meta
+          name={'description'}
+          content={
+            'Resources, useful links, libraries, frameworks and articles.'
+          }
+        />
+        <link rel={'canonical'} href={'http://mysite.com/example'} />
+      </Helmet>
       <Wrapper>
         <AppHeader breadcrumbs={breadcrumbs} hasClose={true} />
         <Content>
-          <Tags>
-            <TagsHeader>Tags</TagsHeader>
+          <Options>
+            <TagsBtn onClick={() => setFiltersOpen(!filtersOpen)}>
+              Show Filters
+            </TagsBtn>
+          </Options>
+          <Tags className={filtersOpen ? 'is-open' : null}>
+            <TagsHeader>
+              <TagsTitle>Tags</TagsTitle>
+              <TagsCloseBtn onClick={() => setFiltersOpen(false)}>
+                <CloseIcon />
+              </TagsCloseBtn>
+            </TagsHeader>
             <TagItemContainer>
               <TagItem
                 className={!currentTag ? 'is-active' : null}
                 to={'/resources'}
               >
                 All
-                <TagCount>{tagsTotal}</TagCount>
+                <TagCount>{totalNodes}</TagCount>
               </TagItem>
             </TagItemContainer>
             {tags.map(tag => {

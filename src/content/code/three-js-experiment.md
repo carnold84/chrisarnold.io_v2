@@ -1,5 +1,6 @@
 ---
 demoLink: 'https://meltplastic.net/demos/three_js/'
+order: 5
 path: '/code/three-js-experiment'
 repositoryLink: 'https://github.com/carnold84/three_js_lab'
 tags: 'Three.js, Modernizr, Require.js, jQuery'

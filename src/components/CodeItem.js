@@ -13,19 +13,28 @@ const Wrapper = styled.div`
   color: var(--text-color-alt2);
   display: grid;
   grid-template-areas:
-    'number header header header'
-    'number content content content'
-    'number meta meta meta'
-    'number links links links';
+    'header header header'
+    'content content content'
+    'meta meta meta'
+    'links links links';
   grid-template-columns: 50px auto;
   grid-template-rows: auto 1fr auto 40px;
   margin: 0 0 40px;
   padding: 40px;
   width: 100%;
+
+  @media ${breakpoint('sm')} {
+    grid-template-areas:
+      'number header header header'
+      'number content content content'
+      'number meta meta meta'
+      'number links links links';
+  }
 `;
 
 const Number = styled.p`
   color: var(--text-color-alt3);
+  display: none;
   flex-shrink: 0;
   font-family: var(--title-font);
   font-size: 2rem;
@@ -34,6 +43,10 @@ const Number = styled.p`
   line-height: 2.4rem;
   margin: 0 0 10px;
   width: 100%;
+
+  @media ${breakpoint('sm')} {
+    display: flex;
+  }
 `;
 
 const Header = styled.h2`
@@ -98,7 +111,7 @@ const Link = styled.a.attrs({
   color: var(--text-color-alt2);
   display: flex;
   fill: var(--text-color-alt2);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
   justify-content: center;
   line-height: 1.4rem;
@@ -137,14 +150,18 @@ const CodeItem = ({ data }) => {
         <span>Tags:</span> {tags}
       </Meta>
       <Links>
-        <Link href={repositoryLink}>
-          <GithubIcon height={'20px'} width={'20px'} />
-          <span>Code</span>
-        </Link>
-        <Link href={demoLink}>
-          <ExternalLinkIcon height={'22px'} width={'22px'} />
-          <span>View</span>
-        </Link>
+        {repositoryLink && repositoryLink !== '' && (
+          <Link href={repositoryLink}>
+            <GithubIcon height={'20px'} width={'20px'} />
+            <span>Code</span>
+          </Link>
+        )}
+        {demoLink && demoLink !== '' && (
+          <Link href={demoLink}>
+            <ExternalLinkIcon height={'22px'} width={'22px'} />
+            <span>View</span>
+          </Link>
+        )}
       </Links>
     </Wrapper>
   );

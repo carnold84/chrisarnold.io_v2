@@ -1,4 +1,3 @@
-const _uniqBy = require('lodash/uniqBy');
 const _uniqueId = require('lodash/uniqueId');
 const path = require('path');
 
@@ -84,11 +83,17 @@ exports.createPages = async ({ actions, graphql }) => {
     allTags = Object.values(tagLookup);
   });
 
+  const totalNodes = allResourcesJson.edges.length;
+
   // create root resources page
   createPage({
     path: `/resources`,
     component: ResourcesTemplate,
-    context: { nodes: allNodes, tags: allTags }, // additional data can be passed via context
+    context: {
+      nodes: allNodes,
+      tags: allTags,
+      totalNodes,
+    }, // additional data can be passed via context
   });
 
   // create pages for each tag
@@ -100,7 +105,12 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: tag.path,
       component: ResourcesTemplate,
-      context: { currentTag: tag, nodes, tags: allTags }, // additional data can be passed via context
+      context: {
+        currentTag: tag,
+        nodes,
+        tags: allTags,
+        totalNodes,
+      }, // additional data can be passed via context
     });
   });
 };

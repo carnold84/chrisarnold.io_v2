@@ -1,4 +1,6 @@
+import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
 import AppHeader from '../components/AppHeader';
@@ -10,9 +12,13 @@ const Wrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex-grow: 1;
   justify-content: center;
-  padding: 0 40px 100px;
+  padding: 100px 40px;
+
+  @media ${breakpoint('sm')} {
+    padding: 0 40px 100px;
+  }
 `;
 
 const Content = styled.div`
@@ -47,8 +53,27 @@ const Paragraph = styled.p`
 `;
 
 export default () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `);
+
+  const { description, title } = data.site.siteMetadata;
+
   return (
     <Layout theme={1}>
+      <Helmet>
+        <meta charSet={'utf-8'} />
+        <title>Chris Arnold - Front-end Developer and Designer - {title}</title>
+        <meta name={'description'} content={description} />
+        <link rel={'canonical'} href={'http://mysite.com/example'} />
+      </Helmet>
       <AppHeader />
       <Wrapper>
         <Content>

@@ -1,5 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
 import AppHeader from '../components/AppHeader';
@@ -19,15 +20,19 @@ const Content = styled.div`
   display: grid;
   grid-column-gap: 40px;
   grid-template-columns: 1fr;
-  padding: 140px 40px;
+  padding: 80px 20px;
 
   @media ${breakpoint('md')} {
     grid-column-gap: 40px;
     grid-template-columns: 1fr 1fr;
-    padding: 110px 120px;
+    padding: 110px 40px;
   }
 
   @media ${breakpoint('lg')} {
+    padding: 110px 120px;
+  }
+
+  @media ${breakpoint('xl')} {
     grid-column-gap: 40px;
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -38,15 +43,15 @@ export default () => {
     query {
       allMarkdownRemark(
         filter: { frontmatter: { type: { eq: "code" } } }
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { order: ASC, fields: [frontmatter___order] }
       ) {
         edges {
           node {
             id
             html
             frontmatter {
-              date
               demoLink
+              order
               path
               repositoryLink
               tags
@@ -56,11 +61,19 @@ export default () => {
           }
         }
       }
+      site {
+        siteMetadata {
+          title
+        }
+      }
     }
   `);
 
   const {
     allMarkdownRemark: { edges },
+    site: {
+      siteMetadata: { title },
+    },
   } = data;
 
   let breadcrumbs = [
@@ -74,7 +87,18 @@ export default () => {
   ];
 
   return (
-    <Layout theme={2}>
+    <Layout theme={3}>
+      <Helmet>
+        <meta charSet={'utf-8'} />
+        <title>Experiments and Projects - {title}</title>
+        <meta
+          name={'description'}
+          content={
+            'Experiments and projects built using Javascript, React, Vue, Angular and much more.'
+          }
+        />
+        <link rel={'canonical'} href={'http://mysite.com/example'} />
+      </Helmet>
       <Wrapper>
         <AppHeader breadcrumbs={breadcrumbs} hasClose={true} />
         <Content>

@@ -1,5 +1,6 @@
 ---
 demoLink: 'https://carnold84.github.io/vue-books/demo'
+order: 1
 path: '/code/vue-books'
 repositoryLink: 'https://github.com/carnold84/vue-books'
 tags: 'Vue.js, LocalStorage'

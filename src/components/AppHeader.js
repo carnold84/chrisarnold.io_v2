@@ -16,35 +16,32 @@ const Wrapper = styled.header`
   flex-shrink: 0;
   justify-content: space-between;
   margin: 0;
-  padding: 40px;
+  padding: 20px;
   position: fixed;
-  transition: padding 1000ms ease;
   width: 100%;
   z-index: 1;
 
   .theme-1 & {
-    background-color: var(--bg-color-1);
+    background-color: var(--theme-color1);
     color: var(--text-color1);
     fill: var(--text-color1);
   }
 
   .theme-2 & {
+    background-color: var(--theme-color2);
+    color: var(--text-color1);
+    fill: var(--text-color1);
+  }
+
+  .theme-3 & {
     background-color: var(--theme-color-alt1);
     color: var(--text-color-alt1);
     fill: var(--text-color-alt1);
   }
 
-  /* @media ${breakpoint('md')} {
-    padding: 60px;
-
-    &.is-compact {
-      padding: 0;
-    }
+  @media ${breakpoint('md')} {
+    padding: 40px;
   }
-
-  @media ${breakpoint('lg')} {
-    padding: 80px;
-  } */
 `;
 
 const Title = styled.div`
@@ -82,7 +79,7 @@ const BreadCrumbText = styled.h2`
   }
 
   .theme-1 & {
-    color: var(--text-color3);
+    color: var(--text-color2);
 
     &:last-child {
       color: var(--text-color1);
@@ -90,6 +87,14 @@ const BreadCrumbText = styled.h2`
   }
 
   .theme-2 & {
+    color: var(--text-color3);
+
+    &:last-child {
+      color: var(--text-color2);
+    }
+  }
+
+  .theme-3 & {
     color: var(--text-color-alt2);
 
     &:last-child {

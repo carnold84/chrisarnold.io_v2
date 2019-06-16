@@ -1,11 +1,13 @@
 module.exports = {
-  pathPrefix: '/chrisarnold.io_v2',
   plugins: [
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Oswald\:300,400,700`, `Open Sans\:400,700`],
       },
+    },
+    {
+      resolve: `gatsby-plugin-react-helmet`,
     },
     {
       resolve: `gatsby-plugin-react-svg`,
@@ -28,7 +30,7 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    title: `Chris Arnold - Front-end Developer and Designer`,
+    title: `ChrisArnold.io`,
     siteUrl: `https://chrisarnold.io`,
     description: `Chris Arnold - Front-end developer and designer working in Javascript, HTML, CSS, React, Vue, Node and much more.`,
   },
