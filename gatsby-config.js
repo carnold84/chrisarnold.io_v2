@@ -1,6 +1,12 @@
 module.exports = {
   plugins: [
     {
+      resolve: `gatsby-plugin-html-attributes`,
+      options: {
+        lang: `en`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Oswald\:300,400,700`, `Open Sans\:400,700`],

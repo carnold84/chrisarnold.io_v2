@@ -1,5 +1,5 @@
 import propTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
