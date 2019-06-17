@@ -88,5 +88,20 @@
     "link": "https://github.com/kevinwolfcr/formal",
     "tags": ["react", "hooks", "library"],
     "title": "Formal"
+  },
+  {
+    "link": "https://coryrylan.com/blog/angular-multiple-http-requests-with-rxjs",
+    "tags": ["angular", "rxjs", "article"],
+    "title": "Angular Multiple HTTP Requests with RxJS"
+  },
+  {
+    "link": "https://www.dannymoerkerke.com/blog/web-components-will-replace-your-frontend-framework",
+    "tags": ["javascript", "web dev", "html", "web components", "article"],
+    "title": "Web Components will replace your frontend framework"
+  },
+  {
+    "link": "https://github.com/wsmd/use-clipboard-copy",
+    "tags": ["react", "library"],
+    "title": "use-clipboard-copy"
   }
 ]
