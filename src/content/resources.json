@@ -103,5 +103,10 @@
     "link": "https://github.com/wsmd/use-clipboard-copy",
     "tags": ["react", "library"],
     "title": "use-clipboard-copy"
+  },
+  {
+    "link": "https://medium.com/@elad/css-architecture-folders-files-structure-f92b40c78d0b",
+    "tags": ["css", "article"],
+    "title": "CSS Architecture — Folders & Files Structure"
   }
 ]
