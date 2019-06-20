@@ -108,5 +108,20 @@
     "link": "https://medium.com/@elad/css-architecture-folders-files-structure-f92b40c78d0b",
     "tags": ["css", "article"],
     "title": "CSS Architecture — Folders & Files Structure"
+  },
+  {
+    "link": "https://headway.io/blog/react-optimize-components-memo-usememo-usecallback",
+    "tags": ["react", "hooks", "article"],
+    "title": "React: Optimize Components with React.memo, useMemo, and useCallback"
+  },
+  {
+    "link": "https://github.com/xnimorz/use-debounce",
+    "tags": ["react", "hooks", "library"],
+    "title": "use-debounce"
+  },
+  {
+    "link": "https://www.smashingmagazine.com/2019/06/styling-modern-web-apps/",
+    "tags": ["css", "article"],
+    "title": "Styling In Modern Web Apps"
   }
 ]
