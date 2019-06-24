@@ -123,5 +123,10 @@
     "link": "https://www.smashingmagazine.com/2019/06/styling-modern-web-apps/",
     "tags": ["css", "article"],
     "title": "Styling In Modern Web Apps"
+  },
+  {
+    "link": "https://dassur.ma/things/when-workers/",
+    "tags": ["web dev", "javascript", "article", "web workers"],
+    "title": "When should you be using Web Workers?"
   }
 ]
