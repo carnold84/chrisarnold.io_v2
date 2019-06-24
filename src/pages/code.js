@@ -5,15 +5,26 @@ import styled from 'styled-components';
 
 import AppHeader from '../components/AppHeader';
 import CodeItem from '../components/CodeItem';
-import Layout from '../components/Layout';
 
 import breakpoint from '../utils/breakpoint';
 
 const Wrapper = styled.div`
+  background-color: var(--theme-color-alt1);
+  clip-path: circle(25px at 100% 0);
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  transition: clip-path 500ms ease-in-out;
   width: 100%;
+  z-index: 2;
+
+  &.showing,
+  &.shown {
+    clip-path: circle(200% at 100% 0);
+  }
 `;
 
 const Content = styled.div`
@@ -38,7 +49,8 @@ const Content = styled.div`
   }
 `;
 
-export default () => {
+export default ({ transitionState }) => {
+  console.log(transitionState);
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
@@ -88,7 +100,7 @@ export default () => {
   ];
 
   return (
-    <Layout theme={3}>
+    <>
       <Helmet>
         <meta charSet={'utf-8'} />
         <title>Experiments and Projects - {title}</title>
@@ -100,8 +112,8 @@ export default () => {
         />
         <link rel={'canonical'} href={`${siteUrl}/code`} />
       </Helmet>
-      <Wrapper>
-        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} />
+      <Wrapper className={transitionState}>
+        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} theme={3} />
         <Content>
           {edges.map((edge, i) => {
             const nodeData = {
@@ -114,6 +126,6 @@ export default () => {
           })}
         </Content>
       </Wrapper>
-    </Layout>
+    </>
   );
 };

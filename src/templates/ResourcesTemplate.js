@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
 import AppHeader from '../components/AppHeader';
-import Layout from '../components/Layout';
 import ResourceItem from '../components/ResourceItem';
 
 import CloseIcon from '../assets/icon/close.svg';
@@ -13,9 +12,21 @@ import breakpoint from '../utils/breakpoint';
 
 const Wrapper = styled.div`
   background-color: var(--theme-color2);
+  clip-path: circle(25px at 100% 0);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  transition: clip-path 500ms ease-in-out;
   width: 100%;
+  z-index: 2;
+
+  &.showing,
+  &.shown {
+    clip-path: circle(200% at 100% 0);
+  }
 `;
 
 const Content = styled.div`
@@ -76,6 +87,7 @@ const Tags = styled.ul`
   }
 
   @media ${breakpoint('lg')} {
+    height: auto;
     left: auto;
     padding: 20px 0;
     top: auto;
@@ -181,6 +193,7 @@ const Resources = styled.div`
 export default props => {
   const {
     pageContext: { currentTag, nodes, slug, tags, totalNodes },
+    transitionState,
   } = props;
   console.log(slug);
 
@@ -221,7 +234,7 @@ export default props => {
   } = data;
 
   return (
-    <Layout theme={2}>
+    <>
       <Helmet>
         <meta charSet={'utf-8'} />
         <title>Resources - {title}</title>
@@ -233,8 +246,8 @@ export default props => {
         />
         <link rel={'canonical'} href={`${siteUrl}${slug}`} />
       </Helmet>
-      <Wrapper>
-        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} />
+      <Wrapper className={transitionState}>
+        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} theme={2} />
         <Content>
           <Options>
             <TagsBtn onClick={() => setFiltersOpen(!filtersOpen)}>
@@ -279,6 +292,6 @@ export default props => {
           </Resources>
         </Content>
       </Wrapper>
-    </Layout>
+    </>
   );
 };
