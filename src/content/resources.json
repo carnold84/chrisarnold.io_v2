@@ -148,5 +148,15 @@
     "link": "https://hackernoon.com/hacking-custom-checkboxes-and-radios-5d48230440d",
     "tags": ["web dev", "css", "article"],
     "title": "Hacking Custom Checkboxes And Radios"
+  },
+  {
+    "link": "https://react-simple-animate.now.sh",
+    "tags": ["react", "library", "animation"],
+    "title": "React Simple Animate"
+  },
+  {
+    "link": "http://elements-of-content-strategy.abookapart.com",
+    "tags": ["web dev", "ebook"],
+    "title": "The Elements of Content Strategy"
   }
 ]
