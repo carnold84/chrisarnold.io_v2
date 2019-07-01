@@ -158,5 +158,35 @@
     "link": "http://elements-of-content-strategy.abookapart.com",
     "tags": ["web dev", "ebook"],
     "title": "The Elements of Content Strategy"
+  },
+  {
+    "link": "https://developers.google.com/web/updates/2018/12/web-share-target",
+    "tags": ["web dev", "javascript", "pwa"],
+    "title": "Registering as a Share Target with the Web Share Target API"
+  },
+  {
+    "link": "https://www.freecodecamp.org/news/how-to-build-reliable-objects-with-factory-functions-in-javascript-9ec1c089ea6f",
+    "tags": ["web dev", "javascript"],
+    "title": "How to build reliable objects with factory functions in JavaScript"
+  },
+  {
+    "link": "https://kentcdodds.com/blog/authentication-in-react-applications",
+    "tags": ["react", "hooks", "authentication"],
+    "title": "Authentication in React Applications"
+  },
+  {
+    "link": "https://jrsinclair.com/articles/2019/functional-js-do-more-with-reduce",
+    "tags": ["javascript"],
+    "title": "Functional Javascript: How To Use Array Reduce For More Than Just Numbers"
+  },
+  {
+    "link": "https://www.sarasoueidan.com/blog/accessible-icon-buttons",
+    "tags": ["web dev", "javascript", "accessibility", "html"],
+    "title": "Accessible Icon Buttons"
+  },
+  {
+    "link": "https://dzone.com/articles/simplifying-content-projection-in-angular",
+    "tags": ["angular"],
+    "title": "Simplifying Content Projection in Angular"
   }
 ]
