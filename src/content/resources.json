@@ -128,5 +128,65 @@
     "link": "https://dassur.ma/things/when-workers/",
     "tags": ["web dev", "javascript", "article", "web workers"],
     "title": "When should you be using Web Workers?"
+  },
+  {
+    "link": "https://dev.to/selbekk/the-10-component-commandments-2a7f",
+    "tags": ["web dev", "javascript", "article", "react", "vue", "components"],
+    "title": "The 10 Component Commandments"
+  },
+  {
+    "link": "https://github.com/renatorib/react-sizes",
+    "tags": ["react", "library"],
+    "title": "React Sizes"
+  },
+  {
+    "link": "https://addyosmani.com/resources/essentialjsdesignpatterns/book/",
+    "tags": ["web dev", "javascript", "ebook", "design patterns"],
+    "title": "Learning JavaScript Design Patterns"
+  },
+  {
+    "link": "https://hackernoon.com/hacking-custom-checkboxes-and-radios-5d48230440d",
+    "tags": ["web dev", "css", "article"],
+    "title": "Hacking Custom Checkboxes And Radios"
+  },
+  {
+    "link": "https://react-simple-animate.now.sh",
+    "tags": ["react", "library", "animation"],
+    "title": "React Simple Animate"
+  },
+  {
+    "link": "http://elements-of-content-strategy.abookapart.com",
+    "tags": ["web dev", "ebook"],
+    "title": "The Elements of Content Strategy"
+  },
+  {
+    "link": "https://developers.google.com/web/updates/2018/12/web-share-target",
+    "tags": ["web dev", "javascript", "pwa"],
+    "title": "Registering as a Share Target with the Web Share Target API"
+  },
+  {
+    "link": "https://www.freecodecamp.org/news/how-to-build-reliable-objects-with-factory-functions-in-javascript-9ec1c089ea6f",
+    "tags": ["web dev", "javascript"],
+    "title": "How to build reliable objects with factory functions in JavaScript"
+  },
+  {
+    "link": "https://kentcdodds.com/blog/authentication-in-react-applications",
+    "tags": ["react", "hooks", "authentication"],
+    "title": "Authentication in React Applications"
+  },
+  {
+    "link": "https://jrsinclair.com/articles/2019/functional-js-do-more-with-reduce",
+    "tags": ["javascript"],
+    "title": "Functional Javascript: How To Use Array Reduce For More Than Just Numbers"
+  },
+  {
+    "link": "https://www.sarasoueidan.com/blog/accessible-icon-buttons",
+    "tags": ["web dev", "javascript", "accessibility", "html"],
+    "title": "Accessible Icon Buttons"
+  },
+  {
+    "link": "https://dzone.com/articles/simplifying-content-projection-in-angular",
+    "tags": ["angular"],
+    "title": "Simplifying Content Projection in Angular"
   }
 ]
