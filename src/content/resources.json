@@ -135,11 +135,6 @@
     "title": "The 10 Component Commandments"
   },
   {
-    "link": "https://github.com/renatorib/react-sizes",
-    "tags": ["react", "library"],
-    "title": "React Sizes"
-  },
-  {
     "link": "https://addyosmani.com/resources/essentialjsdesignpatterns/book/",
     "tags": ["web dev", "javascript", "ebook", "design patterns"],
     "title": "Learning JavaScript Design Patterns"
@@ -188,5 +183,10 @@
     "link": "https://dzone.com/articles/simplifying-content-projection-in-angular",
     "tags": ["angular"],
     "title": "Simplifying Content Projection in Angular"
+  },
+  {
+    "link": "https://kentcdodds.com/blog/optimize-react-re-renders",
+    "tags": ["react", "performance", "article"],
+    "title": "One simple trick to optimize React re-renders"
   }
 ]
