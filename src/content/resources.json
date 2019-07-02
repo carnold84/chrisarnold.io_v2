@@ -188,5 +188,10 @@
     "link": "https://kentcdodds.com/blog/optimize-react-re-renders",
     "tags": ["react", "performance", "article"],
     "title": "One simple trick to optimize React re-renders"
+  },
+  {
+    "link": "https://javascriptplayground.com/avoiding-recursive-use-effect-hooks-react/",
+    "tags": ["react", "hooks", "performance", "article"],
+    "title": "Avoiding recursive useEffect hooks in React"
   }
 ]
