@@ -193,5 +193,10 @@
     "link": "https://javascriptplayground.com/avoiding-recursive-use-effect-hooks-react/",
     "tags": ["react", "hooks", "performance", "article"],
     "title": "Avoiding recursive useEffect hooks in React"
+  },
+  {
+    "link": "https://rafaelquintanilha.com/how-to-reuse-logic-with-react-hooks/",
+    "tags": ["react", "hooks", "performance", "article"],
+    "title": "How to Reuse Logic with React Hooks"
   }
 ]
