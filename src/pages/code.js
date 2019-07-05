@@ -13,9 +13,7 @@ const Wrapper = styled.div`
   clip-path: circle(25px at 100% 0);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  overflow: auto;
-  position: absolute;
+  position: relative;
   top: 0;
   transition: clip-path 500ms ease-in-out;
   width: 100%;
@@ -50,7 +48,6 @@ const Content = styled.div`
 `;
 
 export default ({ transitionState }) => {
-  console.log(transitionState);
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(

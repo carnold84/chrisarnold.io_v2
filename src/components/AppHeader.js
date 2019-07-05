@@ -63,6 +63,7 @@ const BreadCrumbText = styled.h2`
   font-family: var(--title-font), Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
+  letter-spacing: 0.03rem;
   margin: 0 0 0 10px;
   text-transform: uppercase;
 

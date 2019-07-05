@@ -11,13 +11,11 @@ import CloseIcon from '../assets/icon/close.svg';
 import breakpoint from '../utils/breakpoint';
 
 const Wrapper = styled.div`
-  background-color: var(--theme-color2);
+  background-color: var(--theme-color-alt1);
   clip-path: circle(25px at 100% 0);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  overflow: auto;
-  position: absolute;
+  position: relative;
   top: 0;
   transition: clip-path 500ms ease-in-out;
   width: 100%;
@@ -30,6 +28,7 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
+  min-height: 100vh;
   padding: 80px 20px;
 
   @media ${breakpoint('md')} {
@@ -67,8 +66,8 @@ const TagsBtn = styled.button`
 
 const Tags = styled.ul`
   align-self: start;
-  background-color: #ffffff;
-  border: 1px solid #f0f0f0;
+  background-color: var(--theme-color-alt2);
+  border: 1px solid var(--theme-color-alt3);
   flex-shrink: 0;
   height: 100%;
   left: 0;
@@ -104,7 +103,7 @@ const TagsHeader = styled.div`
 `;
 
 const TagsTitle = styled.h3`
-  color: var(--text-color1);
+  color: var(--text-color-alt1);
   font-family: var(--title-font);
   font-size: 1.2rem;
   font-weight: 400;
@@ -135,7 +134,7 @@ const TagItemContainer = styled.li`
 const TagItem = styled(Link)`
   align-items: center;
   border-left: 2px solid transparent;
-  color: var(--text-color2);
+  color: var(--text-color-alt2);
   display: flex;
   font-family: var(--title-font);
   font-size: 1.1rem;
@@ -149,22 +148,23 @@ const TagItem = styled(Link)`
   width: 100%;
 
   &:hover {
-    background-color: var(--color3);
-    color: var(--text-color1);
+    background-color: var(--theme-color-alt3);
+    color: var(--text-color-alt1);
   }
 
   &.is-active {
-    background-color: var(--color3);
+    background-color: var(--theme-color-alt3);
     border-color: var(--color1);
-    color: var(--text-color1);
+    color: var(--text-color-alt1);
   }
 `;
 
 const TagCount = styled.span`
   align-items: center;
-  border: 1px solid var(--theme-color3);
+  background-color: var(--theme-color-alt2);
+  border: 1px solid var(--theme-color-alt3);
   border-radius: 15px;
-  color: var(--text-color3);
+  color: var(--text-color-alt3);
   display: inline-flex;
   font-family: var(--title-font);
   font-size: 0.9rem;
@@ -174,8 +174,9 @@ const TagCount = styled.span`
   margin: 1px 0 0;
   padding: 0 15px;
 
-  .is-active & {
-    border-color: var(--color2);
+  .is-active &,
+  :hover & {
+    border-color: var(--theme-color-alt4);
   }
 `;
 
@@ -195,7 +196,6 @@ export default props => {
     pageContext: { currentTag, nodes, slug, tags, totalNodes },
     transitionState,
   } = props;
-  console.log(slug);
 
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -247,7 +247,7 @@ export default props => {
         <link rel={'canonical'} href={`${siteUrl}${slug}`} />
       </Helmet>
       <Wrapper className={transitionState}>
-        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} theme={2} />
+        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} theme={3} />
         <Content>
           <Options>
             <TagsBtn onClick={() => setFiltersOpen(!filtersOpen)}>
