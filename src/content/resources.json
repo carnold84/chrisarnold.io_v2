@@ -203,5 +203,10 @@
     "link": "https://github.com/nhn/tui.grid",
     "tags": ["web dev", "javascript", "library"],
     "title": "Tui Grid"
+  },
+  {
+    "link": "https://blog.logrocket.com/8-dom-features-you-didnt-know-existed-ec2a0a28fd89/",
+    "tags": ["web dev", "javascript", "article"],
+    "title": "8 DOM features you didn’t know existed"
   }
 ]
