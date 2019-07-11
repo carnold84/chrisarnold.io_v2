@@ -96,7 +96,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  height: 100%;
   width: 100%;
 `;
 
@@ -117,12 +116,14 @@ class Layout extends Component {
   }
 
   startTransition = () => {
-    this.setState(() => {
-      return {
-        currentPageState: 'showing',
-        previousPageState: 'hiding',
-      };
-    });
+    setTimeout(() => {
+      this.setState(() => {
+        return {
+          currentPageState: 'showing',
+          previousPageState: 'hiding',
+        };
+      });
+    }, 50);
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -130,8 +131,6 @@ class Layout extends Component {
     const { currentPage, currentPath } = prevState;
 
     let theme = undefined;
-
-    console.log(currentPath);
 
     if (currentPath === '') {
       theme = 1;
@@ -167,8 +166,6 @@ class Layout extends Component {
     const { currentPage } = prevState;
     const { theme } = this.state;
 
-    console.log(theme, prevState.theme);
-
     if (theme !== prevState.theme) {
       document.body.classList.remove(`theme-${prevState.theme}`);
       document.body.classList.add(`theme-${theme}`);
@@ -185,7 +182,7 @@ class Layout extends Component {
             previousPageState: 'hidden',
           };
         });
-      }, 500);
+      }, 550);
     }
   }
 
@@ -198,8 +195,6 @@ class Layout extends Component {
       previousPageState,
       currentPageState,
     } = this.state;
-
-    console.log(this.state.theme);
 
     let current = undefined;
     let previous = undefined;

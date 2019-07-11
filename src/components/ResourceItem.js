@@ -29,7 +29,7 @@ const Cell = styled.div`
   color: var(--text-color-alt1);
   display: flex;
   flex-wrap: wrap;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.5rem;
   padding: 10px 20px;
@@ -41,7 +41,6 @@ const Cell = styled.div`
 
 const TitleCell = styled(Cell)`
   font-family: var(--title-font);
-  font-size: 1.1rem;
   padding: 20px 20px 0;
 
   @media ${breakpoint('sm')} {
@@ -64,7 +63,7 @@ const UrlLink = styled.a.attrs({
   background-color: transparent;
   border: none;
   border-bottom: 1px dotted var(--text-color-alt2);
-  color: var(--text-color2);
+  color: var(--text-color-alt2);
   display: inline-flex;
   font-size: 1rem;
   font-weight: 400;
@@ -75,7 +74,7 @@ const UrlLink = styled.a.attrs({
 
   &:hover {
     border-bottom-color: var(--color-alt1);
-    color: var(--color1);
+    color: var(--text-color-alt1);
   }
 
   @media ${breakpoint('sm')} {
