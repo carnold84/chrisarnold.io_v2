@@ -21,19 +21,19 @@ const Wrapper = styled.header`
   width: 100%;
   z-index: 1;
 
-  .theme-1 & {
+  &.theme-1 {
     background-color: var(--theme-color1);
     color: var(--text-color1);
     fill: var(--text-color1);
   }
 
-  .theme-2 & {
+  &.theme-2 {
     background-color: var(--theme-color2);
     color: var(--text-color1);
     fill: var(--text-color1);
   }
 
-  .theme-3 & {
+  &.theme-3 {
     background-color: var(--theme-color-alt1);
     color: var(--text-color-alt1);
     fill: var(--text-color-alt1);
@@ -63,6 +63,7 @@ const BreadCrumbText = styled.h2`
   font-family: var(--title-font), Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
+  letter-spacing: 0.03rem;
   margin: 0 0 0 10px;
   text-transform: uppercase;
 
@@ -78,7 +79,7 @@ const BreadCrumbText = styled.h2`
     }
   }
 
-  .theme-1 & {
+  &.theme-1 {
     color: var(--text-color2);
 
     &:last-child {
@@ -86,7 +87,7 @@ const BreadCrumbText = styled.h2`
     }
   }
 
-  .theme-2 & {
+  &.theme-2 {
     color: var(--text-color3);
 
     &:last-child {
@@ -94,7 +95,7 @@ const BreadCrumbText = styled.h2`
     }
   }
 
-  .theme-3 & {
+  &.theme-3 {
     color: var(--text-color-alt2);
 
     &:last-child {
@@ -142,8 +143,8 @@ const AppHeader = ({ breadcrumbs, hasClose, theme }) => {
     classes = ['has-close'];
   }
 
-  if (theme === 1) {
-    classes = ['theme-1'];
+  if (theme) {
+    classes = [`theme-${theme}`];
   }
 
   let crumbs;

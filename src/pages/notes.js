@@ -2,7 +2,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 
 import NoteItem from '../components/NoteItem';
-import Layout from '../components/Layout';
 
 const NotesPage = () => {
   const data = useStaticQuery(graphql`
@@ -31,11 +30,7 @@ const NotesPage = () => {
   } = data;
 
   return (
-    <Layout
-      appHeaderColor={'--text-color-alt1'}
-      bgColor={'--color-alt1'}
-      isCompact={true}
-    >
+    <>
       {edges.map(edge => {
         const nodeData = {
           excerpt: edge.node.excerpt,
@@ -43,7 +38,7 @@ const NotesPage = () => {
         };
         return <NoteItem data={nodeData} key={nodeData.path} />;
       })}
-    </Layout>
+    </>
   );
 };
 

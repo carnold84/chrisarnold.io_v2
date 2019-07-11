@@ -8,9 +8,9 @@ import breakpoint from '../utils/breakpoint';
 
 const Wrapper = styled.div`
   align-self: start;
-  background-color: #ffffff;
-  border: 1px solid #f0f0f0;
-  color: var(--text-color1);
+  background-color: var(--theme-color-alt2);
+  border: 1px solid var(--theme-color-alt3);
+  color: var(--text-color-alt1);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 3fr;
@@ -26,10 +26,10 @@ const Wrapper = styled.div`
 
 const Cell = styled.div`
   align-items: center;
-  color: var(--text-color1);
+  color: var(--text-color-alt1);
   display: flex;
   flex-wrap: wrap;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.5rem;
   padding: 10px 20px;
@@ -41,8 +41,6 @@ const Cell = styled.div`
 
 const TitleCell = styled(Cell)`
   font-family: var(--title-font);
-  font-size: 1.1rem;
-  font-weight: 400;
   padding: 20px 20px 0;
 
   @media ${breakpoint('sm')} {
@@ -64,8 +62,8 @@ const UrlLink = styled.a.attrs({
 })`
   background-color: transparent;
   border: none;
-  border-bottom: 1px dotted var(--text-color2);
-  color: var(--text-color2);
+  border-bottom: 1px dotted var(--text-color-alt2);
+  color: var(--text-color-alt2);
   display: inline-flex;
   font-size: 1rem;
   font-weight: 400;
@@ -75,8 +73,8 @@ const UrlLink = styled.a.attrs({
   text-decoration: none;
 
   &:hover {
-    border-bottom-color: var(--color1);
-    color: var(--color1);
+    border-bottom-color: var(--color-alt1);
+    color: var(--text-color-alt1);
   }
 
   @media ${breakpoint('sm')} {

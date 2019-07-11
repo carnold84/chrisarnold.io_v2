@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled(Link)`
   align-items: center;
-  background-color: transparent;
-  border: 1px solid var(--theme-color3);
+  background-color: var(--theme-color-alt2);
+  border: 1px solid var(--theme-color-alt3);
   border-radius: 16px;
   color: var(--text-color3);
   display: flex;
@@ -14,6 +14,7 @@ const Wrapper = styled(Link)`
   font-size: 0.9rem;
   font-weight: 400;
   height: 30px;
+  letter-spacing: 0.03rem;
   line-height: 1rem;
   margin: 2px 4px 2px 0;
   padding: 0 14px;
@@ -21,9 +22,9 @@ const Wrapper = styled(Link)`
   text-transform: capitalize;
 
   &:hover {
-    background-color: var(--color3);
-    border-color: var(--color2);
-    color: var(--color1);
+    background-color: var(--theme-color-alt3);
+    border-color: var(--theme-color-alt3);
+    color: var(--text-color-alt1);
   }
 `;
 

@@ -5,21 +5,40 @@ import styled from 'styled-components';
 
 import AppHeader from '../components/AppHeader';
 import CodeItem from '../components/CodeItem';
-import Layout from '../components/Layout';
 
 import breakpoint from '../utils/breakpoint';
 
 const Wrapper = styled.div`
+  background-color: var(--theme-color-alt1);
+  clip-path: circle(0% at 89% 3%);
   display: flex;
   flex-direction: column;
-  height: 100%;
+  position: relative;
+  top: 0;
   width: 100%;
+  z-index: 2;
+
+  &.showing,
+  &.shown {
+    transition: clip-path 500ms ease-in;
+    clip-path: circle(250% at 89% 3%);
+  }
+
+  &.showing,
+  &.hiding {
+    overflow: hidden;
+  }
+
+  &.hiding {
+    transition: clip-path 500ms ease-out;
+  }
 `;
 
 const Content = styled.div`
   display: grid;
   grid-column-gap: 40px;
   grid-template-columns: 1fr;
+  min-height: 100vh;
   padding: 90px 20px;
 
   @media ${breakpoint('md')} {
@@ -38,7 +57,7 @@ const Content = styled.div`
   }
 `;
 
-export default () => {
+export default ({ transitionState }) => {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
@@ -86,9 +105,10 @@ export default () => {
       text: 'Experiments and Projects',
     },
   ];
+  console.log(transitionState);
 
   return (
-    <Layout theme={3}>
+    <>
       <Helmet>
         <meta charSet={'utf-8'} />
         <title>Experiments and Projects - {title}</title>
@@ -100,8 +120,8 @@ export default () => {
         />
         <link rel={'canonical'} href={`${siteUrl}/code`} />
       </Helmet>
-      <Wrapper>
-        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} />
+      <Wrapper className={transitionState}>
+        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} theme={3} />
         <Content>
           {edges.map((edge, i) => {
             const nodeData = {
@@ -114,6 +134,6 @@ export default () => {
           })}
         </Content>
       </Wrapper>
-    </Layout>
+    </>
   );
 };

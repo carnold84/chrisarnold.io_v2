@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
 import AppHeader from '../components/AppHeader';
-import Layout from '../components/Layout';
 
 import breakpoint from '../utils/breakpoint';
 
@@ -13,8 +12,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  height: 100vh;
   justify-content: center;
+  left: 0;
   padding: 100px 40px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
 
   @media ${breakpoint('sm')} {
     padding: 0 40px 100px;
@@ -70,7 +75,7 @@ export default () => {
   const { description, siteUrl, title } = data.site.siteMetadata;
 
   return (
-    <Layout theme={1}>
+    <>
       <Helmet>
         <meta charSet={'utf-8'} />
         <title>{title} - Front-end Developer and Designer</title>
@@ -89,6 +94,6 @@ export default () => {
           </Paragraph>
         </Content>
       </Wrapper>
-    </Layout>
+    </>
   );
 };
