@@ -213,5 +213,15 @@
     "link": "https://sghall.github.io/react-compound-slider/#/",
     "tags": ["react", "library", "component"],
     "title": "React Compound Slider"
+  },
+  {
+    "link": "https://uxdesign.cc/color-accessibility-tools-and-resources-to-help-you-design-inclusive-products-e737da94141e",
+    "tags": ["web dev", "accessibility", "article"],
+    "title": "Color accessibility: tools and resources to help you design inclusive products"
+  },
+  {
+    "link": "https://docs.staticsiteboilerplate.com",
+    "tags": ["web dev", "html", "library", "static sites"],
+    "title": "Static Site Boilerplate"
   }
 ]
