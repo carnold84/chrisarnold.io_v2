@@ -223,5 +223,15 @@
     "link": "https://docs.staticsiteboilerplate.com",
     "tags": ["web dev", "html", "library", "static sites"],
     "title": "Static Site Boilerplate"
+  },
+  {
+    "link": "https://colors.eva.design",
+    "tags": ["design", "colour", "tools"],
+    "title": "Eva Design System"
+  },
+  {
+    "link": "https://ant.design",
+    "tags": ["react", "library", "design"],
+    "title": "Ant Design"
   }
 ]
