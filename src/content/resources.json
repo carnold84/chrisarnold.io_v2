@@ -233,5 +233,10 @@
     "link": "https://ant.design",
     "tags": ["react", "library", "design"],
     "title": "Ant Design"
+  },
+  {
+    "link": "https://github.com/rcdexta/react-trello",
+    "tags": ["react", "library"],
+    "title": "React Trello"
   }
 ]
