@@ -248,5 +248,10 @@
     "link": "https://slack.engineering/rebuilding-slack-on-the-desktop-308d6fe94ae4",
     "tags": ["web dev", "javascript", "performance", "app architecture", "article"],
     "title": "When a rewrite isn’t: rebuilding Slack on the desktop"
+  },
+  {
+    "link": "https://github.com/GoogleChromeLabs/comlink",
+    "tags": ["web dev", "javascript", "performance", "web workers", "library"],
+    "title": "Comlink"
   }
 ]
