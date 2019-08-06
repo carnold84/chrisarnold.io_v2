@@ -213,5 +213,50 @@
     "link": "https://sghall.github.io/react-compound-slider/#/",
     "tags": ["react", "library", "component"],
     "title": "React Compound Slider"
+  },
+  {
+    "link": "https://uxdesign.cc/color-accessibility-tools-and-resources-to-help-you-design-inclusive-products-e737da94141e",
+    "tags": ["web dev", "accessibility", "article"],
+    "title": "Color accessibility: tools and resources to help you design inclusive products"
+  },
+  {
+    "link": "https://docs.staticsiteboilerplate.com",
+    "tags": ["web dev", "html", "library", "static sites"],
+    "title": "Static Site Boilerplate"
+  },
+  {
+    "link": "https://colors.eva.design",
+    "tags": ["design", "colour", "tools"],
+    "title": "Eva Design System"
+  },
+  {
+    "link": "https://ant.design",
+    "tags": ["react", "library", "design"],
+    "title": "Ant Design"
+  },
+  {
+    "link": "https://github.com/rcdexta/react-trello",
+    "tags": ["react", "library"],
+    "title": "React Trello"
+  },
+  {
+    "link": "https://developers.google.com/search/docs/guides/javascript-seo-basics",
+    "tags": ["web dev", "javascript", "seo", "article"],
+    "title": "Understand the JavaScript SEO basics"
+  },
+  {
+    "link": "https://slack.engineering/rebuilding-slack-on-the-desktop-308d6fe94ae4",
+    "tags": ["web dev", "javascript", "performance", "app architecture", "article"],
+    "title": "When a rewrite isn’t: rebuilding Slack on the desktop"
+  },
+  {
+    "link": "https://github.com/GoogleChromeLabs/comlink",
+    "tags": ["web dev", "javascript", "performance", "web workers", "library"],
+    "title": "Comlink"
+  },
+  {
+    "link": "https://adamsilver.io/articles/form-design-from-zero-to-hero-all-in-one-blog-post/",
+    "tags": ["web dev", "html", "accessibility", "article"],
+    "title": "Form design: from zero to hero all in one blog post"
   }
 ]
