@@ -253,5 +253,10 @@
     "link": "https://github.com/GoogleChromeLabs/comlink",
     "tags": ["web dev", "javascript", "performance", "web workers", "library"],
     "title": "Comlink"
+  },
+  {
+    "link": "https://adamsilver.io/articles/form-design-from-zero-to-hero-all-in-one-blog-post/",
+    "tags": ["web dev", "html", "accessibility", "article"],
+    "title": "Form design: from zero to hero all in one blog post"
   }
 ]
