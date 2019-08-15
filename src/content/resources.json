@@ -273,5 +273,10 @@
     "link": "https://github.com/aeagle/react-spaces",
     "tags": ["react", "library"],
     "title": "React Spaces"
+  },
+  {
+    "link": "https://www.invisionapp.com/inside-design/guide-to-design-systems/",
+    "tags": ["web dev", "design", "article", "library"],
+    "title": "A comprehensive guide to design systems"
   }
 ]
