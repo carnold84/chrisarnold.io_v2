@@ -276,7 +276,17 @@
   },
   {
     "link": "https://www.invisionapp.com/inside-design/guide-to-design-systems/",
-    "tags": ["web dev", "design", "article", "library"],
+    "tags": ["web dev", "design", "design systems", "article", "library"],
     "title": "A comprehensive guide to design systems"
+  },
+  {
+    "link": "https://leewarrick.com/blog/react-use-effect-explained/",
+    "tags": ["web dev", "react", "hooks", "article"],
+    "title": "React's useEffect and useRef Explained for Mortals"
+  },
+  {
+    "link": "https://leerob.io/blog/style-guides-component-libraries-design-systems/",
+    "tags": ["web dev", "design", "design systems", "style guides", "article"],
+    "title": "Everything I Know About Style Guides, Design Systems, and Component Libraries"
   }
 ]
