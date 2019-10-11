@@ -71,6 +71,11 @@ const Content = styled.div`
     line-height: 1.8rem;
     margin: 0 0 20px;
   }
+
+  a {
+    color: var(--text-color-alt1);
+    text-decoration: none;
+  }
 `;
 
 const Meta = styled.p`
@@ -83,7 +88,7 @@ const Meta = styled.p`
   color: var(--text-color-alt2);
   font-size: 1.1rem;
   font-weight: 400;
-  line-height: 1.4rem;
+  line-height: 1.5rem;
 
   @media ${breakpoint('sm')} {
     margin: 0 0 20px;
