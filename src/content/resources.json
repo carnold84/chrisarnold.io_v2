@@ -288,5 +288,15 @@
     "link": "https://leerob.io/blog/style-guides-component-libraries-design-systems/",
     "tags": ["web dev", "design", "design systems", "style guides", "article"],
     "title": "Everything I Know About Style Guides, Design Systems, and Component Libraries"
+  },
+  {
+    "link": "https://wattenberger.com/blog/react-hooks",
+    "tags": ["react", "hooks", "article"],
+    "title": "Thinking in React Hooks"
+  },
+  {
+    "link": "https://usehooks.com",
+    "tags": ["react", "hooks", "tools"],
+    "title": "useHooks"
   }
 ]
