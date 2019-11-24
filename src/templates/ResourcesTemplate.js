@@ -12,9 +12,9 @@ import breakpoint from '../utils/breakpoint';
 
 const Wrapper = styled.div`
   background-color: var(--theme-color-alt1);
-  clip-path: circle(0% at 95% 2%);
   display: flex;
   flex-direction: column;
+  opacity: 0;
   position: relative;
   top: 0;
   width: 100%;
@@ -22,8 +22,8 @@ const Wrapper = styled.div`
 
   &.showing,
   &.shown {
-    transition: clip-path 500ms ease-in;
-    clip-path: circle(250% at 95% 2%);
+    opacity: 1;
+    transition: opacity 250ms ease-in;
   }
 
   &.showing,
@@ -32,7 +32,8 @@ const Wrapper = styled.div`
   }
 
   &.hiding {
-    transition: clip-path 500ms ease-out;
+    opacity: 0;
+    transition: opacity 250ms ease-out;
   }
 `;
 
