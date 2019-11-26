@@ -298,5 +298,20 @@
     "link": "https://usehooks.com",
     "tags": ["react", "hooks", "tools"],
     "title": "useHooks"
+  },
+  {
+    "link": "http://a-jie.github.io/Proton/",
+    "tags": ["javascript", "library", "tools"],
+    "title": "Proton"
+  },
+  {
+    "link": "https://react-hook-form.com",
+    "tags": ["react", "hooks", "library"],
+    "title": "React Hook Form"
+  },
+  {
+    "link": "https://www.aditus.io/button-contrast-checker/",
+    "tags": ["web dev", "accessibility", "tools", "design"],
+    "title": "Button Contrast Checker"
   }
 ]
