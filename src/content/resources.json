@@ -338,5 +338,10 @@
     "link": "https://github.com/mg901/styled-breakpoints",
     "tags": ["web dev", "react", "styled components", "javascript"],
     "title": "Styled Breakpoints"
+  },
+  {
+    "link": "https://www.brucelawson.co.uk/2019/checklist-to-avoid-the-most-common-accessibility-errors/",
+    "tags": ["web dev", "accessibility", "article"],
+    "title": "Checklist to avoid the most common accessibility errors"
   }
 ]
