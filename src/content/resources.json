@@ -323,5 +323,30 @@
     "link": "https://fengyuanchen.github.io/cropperjs/",
     "tags": ["javascript", "web dev", "library"],
     "title": "Cropper.js"
+  },
+  {
+    "link": "https://easydb.io",
+    "tags": ["javascript", "web dev", "database"],
+    "title": "EasyDB"
+  },
+  {
+    "link": "https://github.com/Jahans3/use-simple-state",
+    "tags": ["web dev", "react", "hooks", "javascript"],
+    "title": "Use Simple State"
+  },
+  {
+    "link": "https://github.com/mg901/styled-breakpoints",
+    "tags": ["web dev", "react", "styled components", "javascript"],
+    "title": "Styled Breakpoints"
+  },
+  {
+    "link": "https://www.brucelawson.co.uk/2019/checklist-to-avoid-the-most-common-accessibility-errors/",
+    "tags": ["web dev", "accessibility", "article"],
+    "title": "Checklist to avoid the most common accessibility errors"
+  },
+  {
+    "link": "https://reactnicedates.hernansartorio.com",
+    "tags": ["react", "library"],
+    "title": "React Nice Dates"
   }
 ]
