@@ -348,5 +348,10 @@
     "link": "https://reactnicedates.hernansartorio.com",
     "tags": ["react", "library"],
     "title": "React Nice Dates"
+  },
+  {
+    "link": "https://github.com/diegohaz/constate",
+    "tags": ["react", "hooks", "javascript", "library"],
+    "title": "Constate"
   }
 ]
