@@ -8,4 +8,4 @@ title: 'Job Tracker'
 type: 'code'
 ---
 
-Angular app created for the user to track jobs, whether they've applied for them and there current status in the application process.
+Angular app created for the user to track jobs, whether they've applied for them, and their current progress in the application process.
