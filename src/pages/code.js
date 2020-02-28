@@ -106,7 +106,6 @@ export default ({ transitionState }) => {
       text: 'Experiments and Projects',
     },
   ];
-  console.log(transitionState);
 
   return (
     <>

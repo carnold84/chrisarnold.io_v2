@@ -1,8 +1,6 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import breakpoint from '../utils/breakpoint';
-
 export const H1 = styled.h1`
   color: var(--text-color-alt1);
   flex-shrink: 0;

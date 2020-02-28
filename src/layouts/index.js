@@ -143,7 +143,7 @@ class Layout extends Component {
     if (children !== currentPage) {
       return {
         currentPage: children,
-        currentPath: nextProps['*'].split('/')[0],
+        currentPath: nextProps.path.split('/')[1],
         currentPageState: 'hidden',
         previousPage: currentPage,
         previousPath: currentPath,
