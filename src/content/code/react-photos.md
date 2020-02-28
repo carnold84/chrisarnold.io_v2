@@ -8,4 +8,4 @@ title: 'React Photos'
 type: 'code'
 ---
 
-Photos app built using React, Next.js, and the responsive <picture> element.
+Photo gallery Progressive Web App (PWA) built using React and Styled Components.
