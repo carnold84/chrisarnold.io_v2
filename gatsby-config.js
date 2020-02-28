@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Oswald\:300,400,700`, `Open Sans\:400,700`],
+        fonts: [`Oswald:300,400,700`, `Open Sans:400,700`],
       },
     },
     {
