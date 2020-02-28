@@ -3,36 +3,19 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import AppHeader from '../components/AppHeader';
 import CodeItem from '../components/CodeItem';
 
 import breakpoint from '../utils/breakpoint';
+import Layout from '../components/Layout';
 
 const Wrapper = styled.div`
   background-color: var(--theme-color-alt1);
   display: flex;
   flex-direction: column;
-  opacity: 0;
   position: relative;
   top: 0;
   width: 100%;
   z-index: 2;
-
-  &.showing,
-  &.shown {
-    opacity: 1;
-    transition: opacity 250ms ease-in;
-  }
-
-  &.showing,
-  &.hiding {
-    overflow: hidden;
-  }
-
-  &.hiding {
-    opacity: 0;
-    transition: opacity 250ms ease-out;
-  }
 `;
 
 const Content = styled.div`
@@ -58,7 +41,7 @@ const Content = styled.div`
   }
 `;
 
-export default ({ transitionState }) => {
+export default () => {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
@@ -108,7 +91,7 @@ export default ({ transitionState }) => {
   ];
 
   return (
-    <>
+    <Layout breadcrumbs={breadcrumbs} theme={3}>
       <Helmet>
         <meta charSet={'utf-8'} />
         <title>Experiments and Projects - {title}</title>
@@ -120,8 +103,7 @@ export default ({ transitionState }) => {
         />
         <link rel={'canonical'} href={`${siteUrl}/code`} />
       </Helmet>
-      <Wrapper className={transitionState}>
-        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} theme={3} />
+      <Wrapper>
         <Content>
           {edges.map((edge, i) => {
             const nodeData = {
@@ -134,6 +116,6 @@ export default ({ transitionState }) => {
           })}
         </Content>
       </Wrapper>
-    </>
+    </Layout>
   );
 };

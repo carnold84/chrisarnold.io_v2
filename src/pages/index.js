@@ -3,9 +3,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import AppHeader from '../components/AppHeader';
-
 import breakpoint from '../utils/breakpoint';
+import Layout from '../components/Layout';
 
 const Wrapper = styled.div`
   align-items: center;
@@ -75,14 +74,13 @@ export default () => {
   const { description, siteUrl, title } = data.site.siteMetadata;
 
   return (
-    <>
+    <Layout theme={1}>
       <Helmet>
         <meta charSet={'utf-8'} />
         <title>{title} - Front-end Developer and Designer</title>
         <meta name={'description'} content={description} />
         <link rel={'canonical'} href={siteUrl} />
       </Helmet>
-      <AppHeader />
       <Wrapper>
         <Content>
           <Heading>Hello,</Heading>
@@ -94,6 +92,6 @@ export default () => {
           </Paragraph>
         </Content>
       </Wrapper>
-    </>
+    </Layout>
   );
 };

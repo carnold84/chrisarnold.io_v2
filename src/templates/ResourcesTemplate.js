@@ -9,32 +9,15 @@ import ResourceItem from '../components/ResourceItem';
 import CloseIcon from '../assets/icon/close.svg';
 
 import breakpoint from '../utils/breakpoint';
+import Layout from '../components/Layout';
 
 const Wrapper = styled.div`
   background-color: var(--theme-color-alt1);
   display: flex;
   flex-direction: column;
-  opacity: 0;
   position: relative;
   top: 0;
   width: 100%;
-  z-index: 2;
-
-  &.showing,
-  &.shown {
-    opacity: 1;
-    transition: opacity 250ms ease-in;
-  }
-
-  &.showing,
-  &.hiding {
-    overflow: hidden;
-  }
-
-  &.hiding {
-    opacity: 0;
-    transition: opacity 250ms ease-out;
-  }
 `;
 
 const Content = styled.div`
@@ -263,7 +246,7 @@ export default props => {
   } = data;
 
   return (
-    <>
+    <Layout breadcrumbs={breadcrumbs} theme={3}>
       <Helmet>
         <meta charSet={'utf-8'} />
         <title>Resources - {title}</title>
@@ -276,7 +259,6 @@ export default props => {
         <link rel={'canonical'} href={`${siteUrl}${slug}`} />
       </Helmet>
       <Wrapper className={transitionState}>
-        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} theme={3} />
         <Content>
           <Options>
             <TagsBtn onClick={() => setFiltersOpen(!filtersOpen)}>
@@ -323,6 +305,6 @@ export default props => {
           </Resources>
         </Content>
       </Wrapper>
-    </>
+    </Layout>
   );
 };
