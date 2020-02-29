@@ -12,10 +12,7 @@ const Wrapper = styled.div`
   background-color: var(--theme-color-alt1);
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: 0;
   width: 100%;
-  z-index: 2;
 `;
 
 const Content = styled.div`
@@ -41,7 +38,8 @@ const Content = styled.div`
   }
 `;
 
-export default () => {
+export default props => {
+  console.log(props)
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(

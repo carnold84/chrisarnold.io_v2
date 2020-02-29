@@ -1,9 +1,7 @@
-import { Link } from 'gatsby';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import propTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-
-import CloseIcon from '../assets/icon/close.svg';
 
 import AppLogo from './AppLogo';
 
@@ -53,7 +51,7 @@ const BreadCrumbs = styled.div`
   margin: 0 0 0 20px;
 `;
 
-const BreadCrumbLink = styled(Link)`
+const BreadCrumbLink = styled(AniLink)`
   color: inherit;
   margin: 0;
   text-decoration: none;
@@ -110,7 +108,7 @@ const Nav = styled.nav`
   justify-content: space-between;
 `;
 
-const NavLink = styled(Link).attrs({
+const NavLink = styled(AniLink).attrs({
   activeClassName: 'is-active',
 })`
   border-bottom: 1px dotted transparent;
@@ -127,21 +125,8 @@ const NavLink = styled(Link).attrs({
   }
 `;
 
-const CloseLink = styled(Link)`
-  align-items: center;
-  display: flex;
-  fill: var(--text-color-alt2);
-  justify-content: center;
-  margin: 0 0 0 10px;
-  text-decoration: none;
-`;
-
-const AppHeader = ({ breadcrumbs, hasClose, theme }) => {
+const AppHeader = ({ breadcrumbs, theme }) => {
   let classes = [];
-
-  if (hasClose) {
-    classes = ['has-close'];
-  }
 
   if (theme) {
     classes = [`theme-${theme}`];
@@ -165,29 +150,22 @@ const AppHeader = ({ breadcrumbs, hasClose, theme }) => {
   return (
     <Wrapper className={classes}>
       <Title>
-        <Link to={'/'}>
+        <AniLink fade={'fade'} to={'/'}>
           <AppLogo />
-        </Link>
+        </AniLink>
         {crumbs && <BreadCrumbs>{crumbs}</BreadCrumbs>}
       </Title>
-      {!hasClose && (
-        <Nav>
-          <NavLink to={'/'}>Home</NavLink>
-          <NavLink to={'/code'}>Code</NavLink>
-          {/* <NavLink to={'/notes'}>Notes</NavLink> */}
-          <NavLink to={'/resources'}>Resources</NavLink>
-        </Nav>
-      )}
-      {hasClose && (
-        <CloseLink to={'/'}>
-          <CloseIcon />
-        </CloseLink>
-      )}
+      <Nav>
+        <NavLink duration={5} fade={'fade'} to={'/'}>Home</NavLink>
+        <NavLink duration={5} fade={'fade'} to={'/code'}>Code</NavLink>
+        {/* <NavLink to={'/notes'}>Notes</NavLink> */}
+        <NavLink fade={'fade'} to={'/resources'}>Resources</NavLink>
+      </Nav>
     </Wrapper>
   );
 };
 
-const { arrayOf, bool, number, shape, string } = propTypes;
+const { arrayOf, number, shape, string } = propTypes;
 
 AppHeader.propTypes = {
   breadcrumbs: arrayOf(
@@ -196,12 +174,10 @@ AppHeader.propTypes = {
       text: string.isRequired,
     }),
   ),
-  hasClose: bool,
   theme: number,
 };
 
 AppHeader.defaultProps = {
-  hasClose: false,
   theme: 1,
 };
 

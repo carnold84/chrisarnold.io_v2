@@ -43,7 +43,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background-color: var(--theme-color1);
     margin: 0;
-    overflow-y: scroll;
+    overflow: hidden;
     padding: 0;
   }
 `;
@@ -51,9 +51,11 @@ const GlobalStyles = createGlobalStyle`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
+  overflow: auto;
   position: absolute;
-  width: 100%;
+  top: 0;
+  width: 100vh;
 `;
 
 const Container = styled.div`

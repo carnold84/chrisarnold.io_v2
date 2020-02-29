@@ -13,12 +13,8 @@ const Wrapper = styled.div`
   flex-grow: 1;
   height: 100vh;
   justify-content: center;
-  left: 0;
   padding: 100px 40px;
-  position: absolute;
-  top: 0;
   width: 100%;
-  z-index: 0;
 
   @media ${breakpoint('sm')} {
     padding: 0 40px 100px;
