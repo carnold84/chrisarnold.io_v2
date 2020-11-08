@@ -3,23 +3,19 @@ import propTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import CloseIcon from '../assets/icon/close.svg';
-
 import AppLogo from './AppLogo';
-
-import breakpoint from '../utils/breakpoint';
 
 const Wrapper = styled.header`
   align-items: center;
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
+  height: 100%;
   justify-content: space-between;
   margin: 0;
-  padding: 20px;
-  position: fixed;
+  position: relative;
+  top: 0;
   width: 100%;
-  z-index: 1;
 
   &.theme-1 {
     background-color: var(--theme-color1);
@@ -38,14 +34,13 @@ const Wrapper = styled.header`
     color: var(--text-color-alt1);
     fill: var(--text-color-alt1);
   }
-
-  @media ${breakpoint('md')} {
-    padding: 40px;
-  }
 `;
 
 const Title = styled.div`
   display: flex;
+  left: 35px;
+  position: absolute;
+  top: 35px;
 `;
 
 const BreadCrumbs = styled.div`
@@ -108,6 +103,9 @@ const Nav = styled.nav`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  right: 40px;
+  top: 38px;
 `;
 
 const NavLink = styled(Link).attrs({
@@ -127,26 +125,7 @@ const NavLink = styled(Link).attrs({
   }
 `;
 
-const CloseLink = styled(Link)`
-  align-items: center;
-  display: flex;
-  fill: var(--text-color-alt2);
-  justify-content: center;
-  margin: 0 0 0 10px;
-  text-decoration: none;
-`;
-
 const AppHeader = ({ breadcrumbs, hasClose, theme }) => {
-  let classes = [];
-
-  if (hasClose) {
-    classes = ['has-close'];
-  }
-
-  if (theme) {
-    classes = [`theme-${theme}`];
-  }
-
   let crumbs;
 
   if (breadcrumbs) {
@@ -163,26 +142,19 @@ const AppHeader = ({ breadcrumbs, hasClose, theme }) => {
   }
 
   return (
-    <Wrapper className={classes}>
+    <Wrapper className={`theme-${theme}`}>
       <Title>
         <Link to={'/'}>
           <AppLogo />
         </Link>
         {crumbs && <BreadCrumbs>{crumbs}</BreadCrumbs>}
       </Title>
-      {!hasClose && (
-        <Nav>
-          <NavLink to={'/'}>Home</NavLink>
-          <NavLink to={'/code'}>Code</NavLink>
-          {/* <NavLink to={'/notes'}>Notes</NavLink> */}
-          <NavLink to={'/resources'}>Resources</NavLink>
-        </Nav>
-      )}
-      {hasClose && (
-        <CloseLink to={'/'}>
-          <CloseIcon />
-        </CloseLink>
-      )}
+      <Nav>
+        <NavLink to={'/'}>Home</NavLink>
+        <NavLink to={'/code'}>Code</NavLink>
+        {/* <NavLink to={'/notes'}>Notes</NavLink> */}
+        <NavLink to={'/resources'}>Resources</NavLink>
+      </Nav>
     </Wrapper>
   );
 };

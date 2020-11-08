@@ -3,53 +3,26 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import AppHeader from '../components/AppHeader';
 import CodeItem from '../components/CodeItem';
+import Page from '../components/Page';
 
 import breakpoint from '../utils/breakpoint';
-
-const Wrapper = styled.div`
-  background-color: var(--theme-color-alt1);
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  position: relative;
-  top: 0;
-  width: 100%;
-  z-index: 2;
-
-  &.showing,
-  &.shown {
-    opacity: 1;
-    transition: opacity 250ms ease-in;
-  }
-
-  &.showing,
-  &.hiding {
-    overflow: hidden;
-  }
-
-  &.hiding {
-    opacity: 0;
-    transition: opacity 250ms ease-out;
-  }
-`;
 
 const Content = styled.div`
   display: grid;
   grid-column-gap: 40px;
   grid-template-columns: 1fr;
   min-height: 100vh;
-  padding: 90px 20px;
+  padding: 0 0;
 
   @media ${breakpoint('md')} {
     grid-column-gap: 40px;
     grid-template-columns: 1fr 1fr;
-    padding: 110px 40px;
+    padding: 110px 0;
   }
 
   @media ${breakpoint('lg')} {
-    padding: 110px 120px;
+    padding: 10px 120px;
   }
 
   @media ${breakpoint('xl')} {
@@ -58,7 +31,7 @@ const Content = styled.div`
   }
 `;
 
-export default ({ transitionState }) => {
+const Code = ({ transitionState }) => {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
@@ -120,8 +93,7 @@ export default ({ transitionState }) => {
         />
         <link rel={'canonical'} href={`${siteUrl}/code`} />
       </Helmet>
-      <Wrapper className={transitionState}>
-        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} theme={3} />
+      <Page breadcrumbs={breadcrumbs} theme={3}>
         <Content>
           {edges.map((edge, i) => {
             const nodeData = {
@@ -133,7 +105,9 @@ export default ({ transitionState }) => {
             return <CodeItem data={nodeData} key={nodeData.id} />;
           })}
         </Content>
-      </Wrapper>
+      </Page>
     </>
   );
 };
+
+export default Code;

@@ -3,49 +3,22 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import AppHeader from '../components/AppHeader';
+import Page from '../components/Page';
 import ResourceItem from '../components/ResourceItem';
 
 import CloseIcon from '../assets/icon/close.svg';
 
 import breakpoint from '../utils/breakpoint';
 
-const Wrapper = styled.div`
-  background-color: var(--theme-color-alt1);
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  position: relative;
-  top: 0;
-  width: 100%;
-  z-index: 2;
-
-  &.showing,
-  &.shown {
-    opacity: 1;
-    transition: opacity 250ms ease-in;
-  }
-
-  &.showing,
-  &.hiding {
-    overflow: hidden;
-  }
-
-  &.hiding {
-    opacity: 0;
-    transition: opacity 250ms ease-out;
-  }
-`;
-
 const Content = styled.div`
   display: grid;
   grid-template-columns: 220px auto;
   grid-gap: 40px;
   min-height: 100vh;
-  padding: 80px 20px;
+  padding: 10px 20px;
 
   @media ${breakpoint('md')} {
-    padding: 110px 120px;
+    padding: 10px 120px;
   }
 `;
 
@@ -89,7 +62,7 @@ const Tags = styled.div`
   transform: translate3d(-100%, 0, 0);
   transition: transform 200ms ease-out;
   width: 100%;
-  z-index: 1000;
+  z-index: 10;
 
   &.is-open {
     transform: translate3d(0, 0, 0);
@@ -214,18 +187,14 @@ const TagCount = styled.span`
 `;
 
 const Resources = styled.div`
-  align-self: start;
   display: grid;
   grid-row-gap: 10px;
   margin: 0;
 `;
 
-export default props => {
-  const {
-    pageContext: { currentTag, nodes, slug, tags, totalNodes },
-    transitionState,
-  } = props;
-
+const ResourcesTemplate = ({
+  pageContext: { currentTag, nodes, slug, tags, totalNodes },
+}) => {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const data = useStaticQuery(graphql`
@@ -275,8 +244,7 @@ export default props => {
         />
         <link rel={'canonical'} href={`${siteUrl}${slug}`} />
       </Helmet>
-      <Wrapper className={transitionState}>
-        <AppHeader breadcrumbs={breadcrumbs} hasClose={true} theme={3} />
+      <Page breadcrumbs={breadcrumbs} theme={3}>
         <Content>
           <Options>
             <TagsBtn onClick={() => setFiltersOpen(!filtersOpen)}>
@@ -300,7 +268,7 @@ export default props => {
                   <TagCount>{totalNodes}</TagCount>
                 </TagItem>
               </TagItemContainer>
-              {tags.map(tag => {
+              {tags.map((tag) => {
                 const isActive = currentTag && tag.id === currentTag.id;
                 return (
                   <TagItemContainer key={tag.id}>
@@ -317,12 +285,14 @@ export default props => {
             </TagsContent>
           </Tags>
           <Resources>
-            {nodes.map(node => {
+            {nodes.map((node) => {
               return <ResourceItem data={node} key={node.id} />;
             })}
           </Resources>
         </Content>
-      </Wrapper>
+      </Page>
     </>
   );
 };
+
+export default ResourcesTemplate;

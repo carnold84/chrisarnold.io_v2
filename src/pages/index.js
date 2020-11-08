@@ -3,33 +3,16 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import AppHeader from '../components/AppHeader';
+import Page from '../components/Page';
 
 import breakpoint from '../utils/breakpoint';
-
-const Wrapper = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  height: 100vh;
-  justify-content: center;
-  left: 0;
-  padding: 100px 40px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 0;
-
-  @media ${breakpoint('sm')} {
-    padding: 0 40px 100px;
-  }
-`;
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
+  height: 100%;
+  justify-content: center;
+  padding: 0 0 40px;
 `;
 
 const Heading = styled.h1`
@@ -59,7 +42,7 @@ const Paragraph = styled.p`
   }
 `;
 
-export default () => {
+const Home = () => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -82,8 +65,7 @@ export default () => {
         <meta name={'description'} content={description} />
         <link rel={'canonical'} href={siteUrl} />
       </Helmet>
-      <AppHeader />
-      <Wrapper>
+      <Page maxWidth={'1000px'} theme={3}>
         <Content>
           <Heading>Hello,</Heading>
           <Paragraph>
@@ -93,7 +75,9 @@ export default () => {
             thought out, user-friendly interfaces.
           </Paragraph>
         </Content>
-      </Wrapper>
+      </Page>
     </>
   );
 };
+
+export default Home;

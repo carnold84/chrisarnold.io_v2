@@ -1,5 +1,5 @@
 import propTypes from 'prop-types';
-import React, { cloneElement, Component } from 'react';
+import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -42,7 +42,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background-color: var(--theme-color1);
     margin: 0;
-    overflow-y: scroll;
+    overflow: hidden;
     padding: 0;
 
     /* &::-webkit-scrollbar {
@@ -99,133 +99,14 @@ const Container = styled.div`
   width: 100%;
 `;
 
-class Layout extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      currentPage: null,
-      currentPath: null,
-      currentPageState: 'hidden',
-      previousPage: null,
-      previousPath: null,
-      previousPageState: 'shown',
-      transitionComplete: false,
-      theme: null,
-    };
-  }
-
-  startTransition = () => {
-    setTimeout(() => {
-      this.setState(() => {
-        return {
-          currentPageState: 'showing',
-          previousPageState: 'hiding',
-        };
-      });
-    }, 50);
-  };
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const { children } = nextProps;
-    const { currentPage, currentPath } = prevState;
-
-    let theme = undefined;
-
-    if (currentPath === '') {
-      theme = 1;
-    } else if (currentPath === 'code') {
-      theme = 2;
-    } else if (currentPath === 'resources') {
-      theme = 3;
-    }
-
-    if (children !== currentPage) {
-      return {
-        currentPage: children,
-        currentPath: nextProps.path.split('/')[1],
-        currentPageState: 'hidden',
-        previousPage: currentPage,
-        previousPath: currentPath,
-        previousPageState: 'shown',
-        theme,
-      };
-    }
-
-    return {
-      theme,
-    };
-  }
-
-  componentDidMount() {
-    this.startTransition();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { children } = this.props;
-    const { currentPage } = prevState;
-    const { theme } = this.state;
-
-    if (theme !== prevState.theme) {
-      document.body.classList.remove(`theme-${prevState.theme}`);
-      document.body.classList.add(`theme-${theme}`);
-    }
-
-    if (children !== currentPage) {
-      this.startTransition();
-
-      setTimeout(() => {
-        this.setState(() => {
-          return {
-            currentPageState: 'shown',
-            previousPage: null,
-            previousPageState: 'hidden',
-          };
-        });
-      }, 550);
-    }
-  }
-
-  render() {
-    const {
-      currentPage,
-      currentPath,
-      previousPage,
-      previousPath,
-      previousPageState,
-      currentPageState,
-    } = this.state;
-
-    let current = undefined;
-    let previous = undefined;
-
-    if (currentPath !== previousPath) {
-      if (previousPage) {
-        previous = cloneElement(previousPage, {
-          transitionState: previousPageState,
-        });
-      }
-
-      current = cloneElement(currentPage, {
-        transitionState: currentPageState,
-      });
-    } else {
-      current = cloneElement(currentPage, {
-        transitionState: 'shown',
-      });
-    }
-
-    return (
-      <Wrapper className={currentPageState}>
-        <GlobalStyles />
-        <Container>
-          {previous}
-          {current}
-        </Container>
-      </Wrapper>
-    );
-  }
-}
+const Layout = ({ children }) => {
+  return (
+    <Wrapper>
+      <GlobalStyles />
+      <Container>{children}</Container>
+    </Wrapper>
+  );
+};
 
 const { number } = propTypes;
 
