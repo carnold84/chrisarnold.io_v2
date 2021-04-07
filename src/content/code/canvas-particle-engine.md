@@ -1,5 +1,5 @@
 ---
-demoLink: 'https://meltplastic.net/demos/canvas_particles/index.html'
+demoLink: 'https://carnold84.github.io/canvas_particles/'
 order: 7
 path: '/code/canvas-particle-engine'
 repositoryLink: 'https://github.com/carnold84/canvas_particles'

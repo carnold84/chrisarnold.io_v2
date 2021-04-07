@@ -1,5 +1,5 @@
 ---
-demoLink: 'https://meltplastic.net/demos/three_js/'
+demoLink: 'https://carnold84.github.io/three_js_lab/'
 order: 5
 path: '/code/three-js-experiment'
 repositoryLink: 'https://github.com/carnold84/three_js_lab'
